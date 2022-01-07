@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
             Take Home Projects
           </a>
         </h2>
+        <Link href="/projects/current-weather">
+          <a>Current Weather Project</a>
+        </Link>
       </main>
     </div>
   );
