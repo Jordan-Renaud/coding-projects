@@ -25,8 +25,8 @@ export default function Home() {
         <p className={styles.cornsilk}>#ecc371</p>
 
         <div className={styles.projectsContainer}>
-          <Link href="/projects/current-weather" className={styles.project}>
-            <a>Current Weather Project</a>
+          <Link href="/projects/current-weather">
+            <a className={styles.project}>Current Weather Project</a>
           </Link>
           <Link href="/projects/wikipedia-viewer" className={styles.project}>
             <a>Wikipedia</a>
