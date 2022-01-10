@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import styles from "../../styles/current-weather.module.scss";
 
 export default function CurrentWeather() {
   const [tempCelsius, setTempCelsius] = useState(0);
@@ -42,7 +43,7 @@ export default function CurrentWeather() {
   }
 
   return (
-    <div>
+    <div className={styles.CurrentWeather}>
       <h1>Current Weather</h1>
       <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
       <button onClick={changeDegreeType}>°{degreeType}</button>

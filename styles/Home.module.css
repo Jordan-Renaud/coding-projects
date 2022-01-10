@@ -21,4 +21,8 @@
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
 }
+
+.CurrentWeather {
+  color: green;
+}
 /*# sourceMappingURL=Home.module.css.map */
