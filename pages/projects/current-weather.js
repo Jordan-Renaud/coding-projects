@@ -2,8 +2,20 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import styles from "../../styles/current-weather.module.scss";
+import { css } from "@emotion/react";
+import { PuffLoader } from "react-spinners";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 export default function CurrentWeather() {
+  //loader variables
+  const [loading, setLoading] = useState(true);
+
+  //weather variables
   const [tempCelsius, setTempCelsius] = useState(0);
   const [tempFarenheit, setTempFarenheit] = useState(0);
   const [icon, setIcon] = useState("");
@@ -36,6 +48,7 @@ export default function CurrentWeather() {
     setIcon(JSON.weather[0].icon);
     setDescription(JSON.weather[0].main);
     setLocation(`${JSON.name}, ${JSON.sys.country}`);
+    setLoading(false);
   }
 
   function changeDegreeType() {
@@ -45,11 +58,18 @@ export default function CurrentWeather() {
   return (
     <div className={styles.CurrentWeather}>
       <h1>Current Weather</h1>
-      <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
-      <button onClick={changeDegreeType}>°{degreeType}</button>
-      <img src={icon} />
-      <p>{description}</p>
-      <p>{location}</p>
+      {loading ? (
+        <PuffLoader color="#6868ac" loading={loading} size={80} />
+      ) : (
+        <div>
+          <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
+          <button onClick={changeDegreeType}>°{degreeType}</button>
+          <img src={icon} />
+          <p>{description}</p>
+          <p>{location}</p>
+        </div>
+      )}
+
       <Link href="/">
         <a>Back to home</a>
       </Link>
