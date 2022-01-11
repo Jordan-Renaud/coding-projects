@@ -8,21 +8,31 @@ export default function Home() {
       <Head>
         <title>Coding Projects</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <main>
         <h1>Coding Projects</h1>
         <h2>
           Projects based off the freeCodeCamp{" "}
-          <a href="https://www.freecodecamp.org/learn/coding-interview-prep/#take-home-projects">
+          <a
+            className={styles.link}
+            href="https://www.freecodecamp.org/learn/coding-interview-prep/#take-home-projects"
+          >
             Take Home Projects
           </a>
+          .
         </h2>
 
-        <p>colours</p>
+        {/* <p>colours</p>
         <p className={styles.tourmaline}>#85a1ac</p>
         <p className={styles.peri}>#6868ac</p>
         <p className={styles.pink}>#e9435e</p>
-        <p className={styles.cornsilk}>#ecc371</p>
+        <p className={styles.cornsilk}>#ecc371</p> */}
 
         <div className={styles.projectsContainer}>
           <Link href="/projects/current-weather">

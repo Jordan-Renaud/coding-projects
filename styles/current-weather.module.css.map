@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,KAAK,EAAE,IAAI;CACZ",
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,UAAU,EAAE,MAAM;CACnB",
     "sources": [
         "current-weather.module.scss"
     ],

@@ -22,7 +22,21 @@
       grid-template-columns: 1fr 1fr;
 }
 
-.CurrentWeather {
-  color: green;
+.link {
+  color: #85a1ac;
+  -webkit-text-decoration: underline 0.1em #85a1ac;
+          text-decoration: underline 0.1em #85a1ac;
+  text-underline-offset: 0.2em;
+  -webkit-transition: text-underline-offset 300ms, -webkit-text-decoration-color 300ms;
+  transition: text-underline-offset 300ms, -webkit-text-decoration-color 300ms;
+  transition: text-decoration-color 300ms, text-underline-offset 300ms;
+  transition: text-decoration-color 300ms, text-underline-offset 300ms, -webkit-text-decoration-color 300ms;
+}
+
+.link:hover {
+  cursor: pointer;
+  -webkit-text-decoration-color: #6868ac;
+          text-decoration-color: #6868ac;
+  text-underline-offset: 0.4em;
 }
 /*# sourceMappingURL=Home.module.css.map */
