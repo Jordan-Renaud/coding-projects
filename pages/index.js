@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
+import { colours, projects } from "./data";
 
 export default function Home() {
   return (
@@ -35,18 +36,11 @@ export default function Home() {
         <p className={styles.cornsilk}>#ecc371</p> */}
 
         <div className={styles.projectsContainer}>
-          <Link href="/projects/current-weather">
-            <a className={styles.project}>Current Weather Project</a>
-          </Link>
-          <Link href="/projects/wikipedia-viewer" className={styles.project}>
-            <a>Wikipedia</a>
-          </Link>
-          <Link href="/projects/twitch-streamers" className={styles.project}>
-            <a>Twitch</a>
-          </Link>
-          <Link href="/projects/image-search" className={styles.project}>
-            <a>Image Search</a>
-          </Link>
+          {projects.map((project) => (
+            <Link key={project.title} href={project.link}>
+              <a className={styles.link}>{project.title}</a>
+            </Link>
+          ))}
         </div>
       </main>
 

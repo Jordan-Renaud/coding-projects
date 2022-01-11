@@ -20,15 +20,20 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.link {
-  color: #85a1ac;
-  text-decoration: underline 0.1em #85a1ac;
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms;
+.Home {
+  text-align: center;
+  .link {
+    color: #85a1ac;
+    text-decoration: underline 0.1em #85a1ac;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 300ms, text-underline-offset 300ms,
+      color 300ms;
 
-  &:hover {
-    cursor: pointer;
-    text-decoration-color: #6868ac;
-    text-underline-offset: 0.4em;
+    &:hover {
+      cursor: pointer;
+      color: #6868ac;
+      text-decoration-color: #6868ac;
+      text-underline-offset: 0.4em;
+    }
   }
 }
