@@ -2,8 +2,14 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { colours, projects } from "./data";
+import useEmblaCarousel from "embla-carousel-react";
 
 export default function Home() {
+  const [emblaRef] = useEmblaCarousel({
+    dragFree: true,
+    containScroll: "trimSnaps",
+  });
+
   return (
     <div className={styles.Home}>
       <Head>
@@ -35,12 +41,18 @@ export default function Home() {
         <p className={styles.pink}>#e9435e</p>
         <p className={styles.cornsilk}>#ecc371</p> */}
 
-        <div className={styles.projectsContainer}>
-          {projects.map((project) => (
-            <Link key={project.title} href={project.link}>
-              <a className={styles.link}>{project.title}</a>
-            </Link>
-          ))}
+        <div className={styles.caroselContainer}>
+          <div className={styles.carosel} ref={emblaRef}>
+            <div className={styles.projectsContainer}>
+              {projects.map((project) => (
+                <Link key={project.title} href={project.link}>
+                  <div className={styles.project}>
+                    <a className={styles.link}>{project.title}</a>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
 

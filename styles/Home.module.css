@@ -14,14 +14,6 @@
   background-color: #ecc371;
 }
 
-.projectsContainer {
-  width: 100vw;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-}
-
 .Home {
   text-align: center;
 }
@@ -43,5 +35,50 @@
   -webkit-text-decoration-color: #6868ac;
           text-decoration-color: #6868ac;
   text-underline-offset: 0.4em;
+}
+
+.Home .caroselContainer {
+  position: relative;
+  background-color: #f7f7f7;
+  padding: 20px;
+  max-width: 670px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Home .caroselContainer .carosel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.Home .caroselContainer .carosel .projectsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-left: -10px;
+}
+
+.Home .caroselContainer .carosel .projectsContainer .project {
+  position: relative;
+  min-width: 50%;
+  padding-left: 10px;
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
 }
 /*# sourceMappingURL=Home.module.css.map */
