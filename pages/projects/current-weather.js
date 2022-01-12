@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/current-weather.module.scss";
-import { css } from "@emotion/react";
 import { PuffLoader } from "react-spinners";
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
 
 export default function CurrentWeather() {
   //loader variables
