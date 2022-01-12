@@ -1,3 +1,12 @@
 .CurrentWeather {
-  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .weather {
+    text-align: center;
+  }
 }

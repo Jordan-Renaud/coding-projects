@@ -2,9 +2,33 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-family: monospace;
+}
+
+.toolbar {
+  display: flex;
+  h2 {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+
+.link {
+  color: #85a1ac;
+  text-decoration: underline 0.1em #85a1ac;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 300ms, text-underline-offset 300ms,
+    color 300ms;
+
+  &:hover {
+    cursor: pointer;
+    color: #6868ac;
+    text-decoration-color: #6868ac;
+    text-underline-offset: 0.4em;
+  }
 }

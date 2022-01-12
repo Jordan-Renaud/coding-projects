@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
 import styles from "../../styles/current-weather.module.scss";
 import { css } from "@emotion/react";
 import { PuffLoader } from "react-spinners";
@@ -61,7 +60,7 @@ export default function CurrentWeather() {
       {loading ? (
         <PuffLoader color="#6868ac" loading={loading} size={80} />
       ) : (
-        <div>
+        <div className={styles.weather}>
           <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
           <button onClick={changeDegreeType}>°{degreeType}</button>
           <img src={icon} />
@@ -69,10 +68,6 @@ export default function CurrentWeather() {
           <p>{location}</p>
         </div>
       )}
-
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
     </div>
   );
 }
