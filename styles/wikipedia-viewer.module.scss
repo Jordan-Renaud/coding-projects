@@ -6,4 +6,11 @@
   .searchContainer {
     margin-top: 2rem;
   }
+  .results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
 }

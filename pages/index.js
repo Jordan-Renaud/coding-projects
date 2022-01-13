@@ -35,11 +35,11 @@ export default function Home() {
           .
         </h2>
 
-        {/* <p>colours</p>
+        <p>colours</p>
         <p className={styles.tourmaline}>#85a1ac</p>
         <p className={styles.peri}>#6868ac</p>
         <p className={styles.pink}>#e9435e</p>
-        <p className={styles.cornsilk}>#ecc371</p> */}
+        <p className={styles.cornsilk}>#ecc371</p>
 
         <div className={styles.caroselContainer}>
           <div className={styles.carosel} ref={emblaRef}>

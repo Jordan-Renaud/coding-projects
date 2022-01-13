@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "../../styles/wikipedia-viewer.module.scss";
-import axios from "axios";
 
 export default function WikipediaViewer() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [results, setResults] = useState([]);
 
   function searchWikipedia(event) {
     event.preventDefault();
@@ -16,16 +16,19 @@ export default function WikipediaViewer() {
   }
 
   function prepareSearchText(searchText) {
-    return searchText.toLowerCase().replace(" ", "%20");
+    return encodeURIComponent(searchText.toLowerCase());
   }
 
   function doApiCall(searchText) {
     const url = `https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search=${searchText}&limit=10`;
     console.log(url);
-    axios.get(url).then(handleJSON);
+    fetch(url)
+      .then((data) => data.json())
+      .then(handleJSON);
   }
 
   function handleJSON(JSON) {
+    setResults(JSON.data[1]);
     console.log(JSON);
   }
 
@@ -41,6 +44,11 @@ export default function WikipediaViewer() {
           aria-label="Search wikipedia"
         />
         <button onClick={searchWikipedia}>Search</button>
+      </div>
+      <div className={styles.results}>
+        {results.map((result) => (
+          <p>{result}</p>
+        ))}
       </div>
     </div>
   );

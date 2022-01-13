@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
     <>
       <header className="toolbar">
@@ -10,9 +12,11 @@ function MyApp({ Component, pageProps }) {
       </header>
       <Component {...pageProps} />
       <footer>
-        <Link href="/">
-          <a className="link">Back to home</a>
-        </Link>
+        {router.pathname !== "/" && (
+          <Link href="/">
+            <a className="link">Back to home</a>
+          </Link>
+        )}
       </footer>
     </>
   );
