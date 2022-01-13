@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../../styles/wikipedia-viewer.module.scss";
+import axios from "axios";
 
 export default function WikipediaViewer() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,6 +14,7 @@ export default function WikipediaViewer() {
 
   function getSearchQuery(event) {
     setSearchQuery(event.target.value);
+    setResults([]);
   }
 
   function prepareSearchText(searchText) {
@@ -20,16 +22,23 @@ export default function WikipediaViewer() {
   }
 
   function doApiCall(searchText) {
-    const url = `https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search=${searchText}&limit=10`;
-    console.log(url);
-    fetch(url)
-      .then((data) => data.json())
-      .then(handleJSON);
+    const url = `https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=${searchText}`;
+    axios(url).then(handleJSON);
   }
 
   function handleJSON(JSON) {
-    setResults(JSON.data[1]);
-    console.log(JSON);
+    const pagesJSON = JSON.data.query.pages;
+    setResults(
+      ...results,
+      Object.keys(pagesJSON).map((pageID) => {
+        return {
+          title: pagesJSON[pageID].title,
+          index: pagesJSON[pageID].index,
+          extract: pagesJSON[pageID].extract,
+          pageNumber: pagesJSON[pageID].pageid,
+        };
+      })
+    );
   }
 
   return (
@@ -47,7 +56,14 @@ export default function WikipediaViewer() {
       </div>
       <div className={styles.results}>
         {results.map((result) => (
-          <p>{result}</p>
+          <a
+            href={`http://en.wikipedia.org/?curid=${result.pageNumber}`}
+            target="_blank"
+            key={result.title}
+          >
+            <p>{result.title}</p>
+            <p>{result.extract}</p>
+          </a>
         ))}
       </div>
     </div>
