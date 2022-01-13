@@ -44,7 +44,9 @@ export default function WikipediaViewer() {
   return (
     <div className={styles.WikipediaViewer}>
       <h1>Wikipedia Viewer</h1>
-      <p>{searchQuery}</p>
+      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+        Random
+      </a>
       <div className={styles.searchContainer}>
         <input
           type="search"
@@ -61,7 +63,7 @@ export default function WikipediaViewer() {
             target="_blank"
             key={result.title}
           >
-            <p>{result.title}</p>
+            <p className={styles.linkTitle}>{result.title}</p>
             <p>{result.extract}</p>
           </a>
         ))}
