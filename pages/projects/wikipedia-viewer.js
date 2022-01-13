@@ -7,9 +7,17 @@ export default function WikipediaViewer() {
   const [results, setResults] = useState([]);
 
   function searchWikipedia(event) {
-    event.preventDefault();
     getSearchQuery(event);
     doApiCall(prepareSearchText(searchQuery));
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    searchWikipedia(event);
+  }
+
+  function handleKeyPress(event) {
+    event.key === "Enter" && searchWikipedia(event);
   }
 
   function getSearchQuery(event) {
@@ -50,11 +58,12 @@ export default function WikipediaViewer() {
       <div className={styles.searchContainer}>
         <input
           type="search"
+          onKeyPress={handleKeyPress}
           value={searchQuery}
           onInput={getSearchQuery}
           aria-label="Search wikipedia"
         />
-        <button onClick={searchWikipedia}>Search</button>
+        <button onClick={handleClick}>Search</button>
       </div>
       <div className={styles.results}>
         {results.map((result) => (
