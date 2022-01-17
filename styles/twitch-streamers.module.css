@@ -1,1 +1,25 @@
-/* No CSS *//*# sourceMappingURL=twitch-streamers.module.css.map */
+.Twitch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Twitch .buttonContainer button {
+  background-color: #6868ac;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.Twitch .buttonContainer button:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=twitch-streamers.module.css.map */
