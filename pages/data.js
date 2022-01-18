@@ -13,12 +13,12 @@ export const projects = [
 ];
 
 export const TwitchStreamerData = [
-  { name: "ESL_SC2", link: "", isOnline: false, details: "Offline" },
-  { name: "OgamingSC2", link: "", isOnline: false, details: "Offline" },
-  { name: "cretetion", link: "", isOnline: false, details: "Offline" },
-  { name: "freecodecamp", link: "", isOnline: false, details: "Offline" },
-  { name: "storbeck", link: "", isOnline: false, details: "Offline" },
-  { name: "habathcx", link: "", isOnline: false, details: "Offline" },
-  { name: "RobotCaleb", link: "", isOnline: false, details: "Offline" },
-  { name: "noobs2ninjas", link: "", isOnline: false, details: "Offline" },
+  { name: "ESL_SC2", logo: "", isOnline: false, details: "Offline" },
+  { name: "OgamingSC2", logo: "", isOnline: false, details: "Offline" },
+  { name: "cretetion", logo: "", isOnline: false, details: "Offline" },
+  { name: "freecodecamp", logo: "", isOnline: false, details: "Offline" },
+  { name: "storbeck", logo: "", isOnline: false, details: "Offline" },
+  { name: "habathcx", logo: "", isOnline: false, details: "Offline" },
+  { name: "RobotCaleb", logo: "", isOnline: false, details: "Offline" },
+  { name: "noobs2ninjas", logo: "", isOnline: false, details: "Offline" },
 ];
