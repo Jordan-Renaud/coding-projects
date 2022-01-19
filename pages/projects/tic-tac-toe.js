@@ -24,7 +24,7 @@ export default function TicTacToe() {
 
     //update player turn
     setCurrentTurn(currentTurn === player1 ? player2 : player1);
-    checkForAWin();
+    console.log(checkForAWin());
   }
 
   //draw check
