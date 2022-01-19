@@ -1,4 +1,27 @@
 .TicTacToe {
   text-align: center;
 }
+
+.TicTacToe .board {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (80px)[3];
+      grid-template-rows: repeat(3, 80px);
+  -ms-grid-columns: (80px)[3];
+      grid-template-columns: repeat(3, 80px);
+  border: solid 1px black;
+  width: 242px;
+  margin: 0 auto;
+}
+
+.TicTacToe .board .square {
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  border: solid 1px black;
+}
+
+.TicTacToe .board .square:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=tic-tac-toe.module.css.map */
