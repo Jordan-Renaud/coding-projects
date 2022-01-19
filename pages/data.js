@@ -10,6 +10,7 @@ export const projects = [
   { title: "Wikipedia", link: "/projects/wikipedia-viewer" },
   { title: "Twitch", link: "/projects/twitch-streamers" },
   { title: "Image Search", link: "/projects/image-search" },
+  { title: "Tic Tac Toe", link: "/projects/tic-tac-toe" },
 ];
 
 export const TwitchStreamerData = [
