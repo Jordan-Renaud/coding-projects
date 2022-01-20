@@ -33,19 +33,26 @@ export default function TicTacToe() {
   }
 
   function checkForAWin() {
-    //horizontal checks
-    checkWinningSection(0, 1, 2) && handleWin(0, 1, 2);
-    checkWinningSection(3, 4, 5) && handleWin(3, 4, 5);
-    checkWinningSection(6, 7, 8) && handleWin(6, 7, 8);
+    const sections = [
+      //horizontal checks
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      //verical checks
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      //diagonal checks
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    sections.forEach((section) =>
+      dealWithSection(section[0], section[1], section[2])
+    );
+  }
 
-    //vertical checks
-    checkWinningSection(0, 3, 6) && handleWin(0, 3, 6);
-    checkWinningSection(1, 4, 7) && handleWin(1, 4, 7);
-    checkWinningSection(2, 5, 8) && handleWin(2, 5, 8);
-
-    //diagonal checks
-    checkWinningSection(0, 4, 8) && handleWin(0, 4, 8);
-    checkWinningSection(2, 4, 6) && handleWin(2, 4, 6);
+  function dealWithSection(index1, index2, index3) {
+    checkWinningSection(index1, index2, index3) && handleWin(index1);
   }
 
   function checkWinningSection(index1, index2, index3) {
@@ -56,7 +63,7 @@ export default function TicTacToe() {
     );
   }
 
-  function handleWin(index1, index2, index3) {
+  function handleWin(index1) {
     //update score board
     board[index1] === player1 && setPlayer1Wins(player1Wins + 1);
     board[index1] === player2 && setPlayer2Wins(player2Wins + 1);
