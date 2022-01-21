@@ -1,12 +1,9 @@
-import Link from "next/link";
+import styles from "../../styles/image-search.module.scss";
 
 export default function ImageSearch() {
   return (
     <div>
-      <h1>ImageSearch</h1>
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
+      <h1>Image Search</h1>
     </div>
   );
 }

@@ -24,12 +24,7 @@ export default function TicTacToe() {
 
     //update player turn
     setCurrentTurn(currentTurn === player1 ? player2 : player1);
-    console.log(checkForAWin());
-  }
-
-  //draw check
-  function isSpacesFilled() {
-    return !board.includes("");
+    checkForAWin();
   }
 
   function checkForAWin() {
@@ -49,6 +44,7 @@ export default function TicTacToe() {
     sections.forEach((section) =>
       dealWithSection(section[0], section[1], section[2])
     );
+    isAllSpacesFilled() && handleDraw();
   }
 
   function dealWithSection(index1, index2, index3) {
@@ -71,6 +67,15 @@ export default function TicTacToe() {
     //show animation of winning row
 
     //reset board
+    setBoard(emptyBoard);
+  }
+
+  //draw check
+  function isAllSpacesFilled() {
+    return !board.includes("");
+  }
+
+  function handleDraw() {
     setBoard(emptyBoard);
   }
 
