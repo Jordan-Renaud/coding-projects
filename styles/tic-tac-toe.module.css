@@ -24,4 +24,8 @@
 .TicTacToe .board .square:hover {
   cursor: pointer;
 }
+
+.TicTacToe .board .square.winningSquare {
+  background-color: blue;
+}
 /*# sourceMappingURL=tic-tac-toe.module.css.map */

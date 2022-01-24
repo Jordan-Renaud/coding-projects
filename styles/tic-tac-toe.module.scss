@@ -17,6 +17,10 @@
       &:hover {
         cursor: pointer;
       }
+
+      &.winningSquare {
+        background-color: blue;
+      }
     }
   }
 }

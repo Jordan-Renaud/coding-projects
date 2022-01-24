@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "image-search.module.scss"
+    ],
+    "names": [],
+    "file": "image-search.module.css"
+}

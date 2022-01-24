@@ -10,6 +10,7 @@ export default function TicTacToe() {
   const [currentTurn, setCurrentTurn] = useState(player1);
   const [player1Wins, setPlayer1Wins] = useState(0);
   const [player2Wins, setPlayer2Wins] = useState(0);
+  const [winningSquares, setWinningSquares] = useState([]);
 
   function doMove(event) {
     const squareIndex = event.target.value;
@@ -48,7 +49,8 @@ export default function TicTacToe() {
   }
 
   function dealWithSection(index1, index2, index3) {
-    checkWinningSection(index1, index2, index3) && handleWin(index1);
+    checkWinningSection(index1, index2, index3) &&
+      handleWin(index1, index2, index3);
   }
 
   function checkWinningSection(index1, index2, index3) {
@@ -59,15 +61,19 @@ export default function TicTacToe() {
     );
   }
 
-  function handleWin(index1) {
+  function handleWin(index1, index2, index3) {
     //update score board
     board[index1] === player1 && setPlayer1Wins(player1Wins + 1);
     board[index1] === player2 && setPlayer2Wins(player2Wins + 1);
 
-    //show animation of winning row
+    //show winning row
+    setWinningSquares([index1, index2, index3]);
 
-    //reset board
-    setBoard(emptyBoard);
+    //reset board after 2 seconds
+    setTimeout(() => {
+      setBoard(emptyBoard);
+      setWinningSquares([]);
+    }, 2000);
   }
 
   //draw check
@@ -96,7 +102,9 @@ export default function TicTacToe() {
           <button
             key={index}
             value={index}
-            className={styles.square}
+            className={`${styles.square} ${
+              winningSquares.includes(index) && styles.winningSquare
+            }`}
             onClick={doMove}
           >
             {square}
