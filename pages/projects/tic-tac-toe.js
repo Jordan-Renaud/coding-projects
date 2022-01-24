@@ -1,31 +1,36 @@
 import { useState } from "react";
+import { shuffle } from "lodash";
 import styles from "../../styles/tic-tac-toe.module.scss";
 
 export default function TicTacToe() {
+  //set up variables
   const emptyBoard = ["", "", "", "", "", "", "", "", ""];
 
   const [player1, setplayer1] = useState("X");
   const [player2, setplayer2] = useState("O");
   const [board, setBoard] = useState(emptyBoard);
+
+  //playing variables
   const [currentTurn, setCurrentTurn] = useState(player1);
   const [player1Wins, setPlayer1Wins] = useState(0);
   const [player2Wins, setPlayer2Wins] = useState(0);
   const [winningSquares, setWinningSquares] = useState([]);
 
+  //game mode variables
+  const [onePlayer, setOnePlayer] = useState(true);
+  const [emptyIndexes, setEmptyIndexes] = useState([]);
+
   function doMove(event) {
     const squareIndex = event.target.value;
 
-    //handle playing logic
-    if (board[squareIndex] === "") {
-      //place piece
-      board.splice(squareIndex, 1, currentTurn);
-    } else {
-      //ignore as square is occupied
-    }
-
-    //update player turn
+    setEmptyIndexes([]);
+    placePiece(squareIndex);
     setCurrentTurn(currentTurn === player1 ? player2 : player1);
     checkForAWin();
+  }
+
+  function placePiece(squareIndex) {
+    board[squareIndex] === "" && board.splice(squareIndex, 1, currentTurn);
   }
 
   function checkForAWin() {
@@ -46,6 +51,23 @@ export default function TicTacToe() {
       dealWithSection(section[0], section[1], section[2])
     );
     isAllSpacesFilled() && handleDraw();
+  }
+
+  function doComputerMove() {
+    //handles next move for computer
+    if (onePlayer && currentTurn === player2) {
+      //get the empty squares
+      board.forEach(
+        (square, index) =>
+          square === "" &&
+          setEmptyIndexes((emptyIndexes) => [...emptyIndexes, index])
+      );
+
+      //wait for 2 seconds
+      setTimeout(() => {
+        console.log(emptyIndexes);
+      }, 2000);
+    }
   }
 
   function dealWithSection(index1, index2, index3) {
@@ -82,12 +104,46 @@ export default function TicTacToe() {
   }
 
   function handleDraw() {
-    setBoard(emptyBoard);
+    //flash all squares
+    setWinningSquares([...Array(9).keys()]);
+
+    //reset board
+    setTimeout(() => {
+      setBoard(emptyBoard);
+      setWinningSquares([]);
+    }, 2000);
+  }
+
+  function setToOnePlayer() {
+    console.log("oneplayer");
+    //wait 1 second
+    //if player 2 insert piece at rabdom location that is empty
+  }
+
+  function setToTwoPlayer() {
+    console.log("twoplayer");
   }
 
   return (
     <div className={styles.TicTacToe}>
       <h1>Tic Tac Toe</h1>
+      <div>
+        <input
+          id="one-player"
+          type="radio"
+          name="player-type"
+          onClick={setToOnePlayer}
+          defaultChecked
+        />
+        <label htmlFor="one-player">One Player</label>
+        <input
+          id="two-player"
+          type="radio"
+          onClick={setToTwoPlayer}
+          name="player-type"
+        />
+        <label htmlFor="two-player">Two Player</label>
+      </div>
       <div>
         <p>Current Turn: {currentTurn}</p>
         <p>
