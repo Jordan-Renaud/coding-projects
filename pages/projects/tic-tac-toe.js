@@ -60,15 +60,15 @@ export default function TicTacToe() {
 
   function doComputerMove() {
     //get the empty squares
-    const emptyIndexes = board
-      .map((square, index) => (square === "" ? index : null))
-      .filter(Boolean);
 
     //wait for 1 seconds
     setTimeout(() => {
+      const emptyIndexes = board
+        .map((square, index) => (square === "" ? index : null))
+        .filter(Boolean);
       placePiece(_.shuffle(emptyIndexes)[0]);
+      setCurrentTurn(currentTurn === player1 ? player2 : player1);
     }, 1000);
-    setCurrentTurn(currentTurn === player1 ? player2 : player1);
   }
 
   function dealWithSection(index1, index2, index3) {
