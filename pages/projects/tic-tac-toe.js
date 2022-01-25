@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { shuffle } from "lodash";
 import styles from "../../styles/tic-tac-toe.module.scss";
 import { useEffect } from "react/cjs/react.development";
 
 export default function TicTacToe() {
   //set up variables
   const emptyBoard = ["", "", "", "", "", "", "", "", ""];
+  const player1 = "X";
+  const player2 = "O";
 
-  const [player1, setplayer1] = useState("X");
-  const [player2, setplayer2] = useState("O");
   const [board, setBoard] = useState(emptyBoard);
 
   //playing variables
@@ -20,16 +19,35 @@ export default function TicTacToe() {
   //game mode variables
   const [onePlayer, setOnePlayer] = useState(true);
 
+  useEffect(() => {
+    if (onePlayer && currentTurn === player2) {
+      doComputerMove();
+    }
+  }, [currentTurn]);
+
+  function doComputerMove() {
+    //get the empty squares
+    const emptyIndexes = board
+      .map((square, index) => (square === "" ? index : null))
+      .filter(Boolean);
+
+    //wait for 1 seconds
+    setTimeout(() => {
+      placePiece(_.shuffle(emptyIndexes)[0]);
+      setCurrentTurn(currentTurn === player1 ? player2 : player1);
+    }, 1000);
+  }
+
+  function placePiece(squareIndex) {
+    board[squareIndex] === "" && board.splice(squareIndex, 1, currentTurn);
+  }
+
   function doMove(event) {
     const squareIndex = event.target.value;
 
     placePiece(squareIndex);
     setCurrentTurn(currentTurn === player1 ? player2 : player1);
     checkForAWin();
-  }
-
-  function placePiece(squareIndex) {
-    board[squareIndex] === "" && board.splice(squareIndex, 1, currentTurn);
   }
 
   function checkForAWin() {
@@ -46,42 +64,28 @@ export default function TicTacToe() {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    const isAllSpacesFilled = () => !board.includes("");
+
+    //helper functions
+    function dealWithSection(index1, index2, index3) {
+      checkWinningSection(index1, index2, index3) &&
+        handleWin(index1, index2, index3);
+    }
+
+    function checkWinningSection(index1, index2, index3) {
+      return (
+        board[index1] !== "" &&
+        board[index1] === board[index2] &&
+        board[index1] === board[index3]
+      );
+    }
+
+    //call functions
     sections.forEach((section) =>
       dealWithSection(section[0], section[1], section[2])
     );
+
     isAllSpacesFilled() && handleDraw();
-  }
-
-  useEffect(() => {
-    if (onePlayer && currentTurn === player2) {
-      doComputerMove();
-    }
-  }, [currentTurn]);
-
-  function doComputerMove() {
-    //get the empty squares
-
-    //wait for 1 seconds
-    setTimeout(() => {
-      const emptyIndexes = board
-        .map((square, index) => (square === "" ? index : null))
-        .filter(Boolean);
-      placePiece(_.shuffle(emptyIndexes)[0]);
-      setCurrentTurn(currentTurn === player1 ? player2 : player1);
-    }, 1000);
-  }
-
-  function dealWithSection(index1, index2, index3) {
-    checkWinningSection(index1, index2, index3) &&
-      handleWin(index1, index2, index3);
-  }
-
-  function checkWinningSection(index1, index2, index3) {
-    return (
-      board[index1] !== "" &&
-      board[index1] === board[index2] &&
-      board[index1] === board[index3]
-    );
   }
 
   function handleWin(index1, index2, index3) {
@@ -99,11 +103,6 @@ export default function TicTacToe() {
     }, 2000);
   }
 
-  //draw check
-  function isAllSpacesFilled() {
-    return !board.includes("");
-  }
-
   function handleDraw() {
     //flash all squares
     setWinningSquares([...Array(9).keys()]);
@@ -115,16 +114,6 @@ export default function TicTacToe() {
     }, 2000);
   }
 
-  function setToOnePlayer() {
-    console.log("oneplayer");
-    //wait 1 second
-    //if player 2 insert piece at rabdom location that is empty
-  }
-
-  function setToTwoPlayer() {
-    console.log("twoplayer");
-  }
-
   return (
     <div className={styles.TicTacToe}>
       <h1>Tic Tac Toe</h1>
@@ -133,14 +122,14 @@ export default function TicTacToe() {
           id="one-player"
           type="radio"
           name="player-type"
-          onClick={setToOnePlayer}
+          onClick={() => setOnePlayer(true)}
           defaultChecked
         />
         <label htmlFor="one-player">One Player</label>
         <input
           id="two-player"
           type="radio"
-          onClick={setToTwoPlayer}
+          onClick={() => setOnePlayer(false)}
           name="player-type"
         />
         <label htmlFor="two-player">Two Player</label>
