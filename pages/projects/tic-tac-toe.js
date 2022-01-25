@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { shuffle } from "lodash";
 import styles from "../../styles/tic-tac-toe.module.scss";
+import { useEffect } from "react/cjs/react.development";
 
 export default function TicTacToe() {
   //set up variables
@@ -18,12 +19,10 @@ export default function TicTacToe() {
 
   //game mode variables
   const [onePlayer, setOnePlayer] = useState(true);
-  const [emptyIndexes, setEmptyIndexes] = useState([]);
 
   function doMove(event) {
     const squareIndex = event.target.value;
 
-    setEmptyIndexes([]);
     placePiece(squareIndex);
     setCurrentTurn(currentTurn === player1 ? player2 : player1);
     checkForAWin();
@@ -53,21 +52,23 @@ export default function TicTacToe() {
     isAllSpacesFilled() && handleDraw();
   }
 
-  function doComputerMove() {
-    //handles next move for computer
+  useEffect(() => {
     if (onePlayer && currentTurn === player2) {
-      //get the empty squares
-      board.forEach(
-        (square, index) =>
-          square === "" &&
-          setEmptyIndexes((emptyIndexes) => [...emptyIndexes, index])
-      );
-
-      //wait for 2 seconds
-      setTimeout(() => {
-        console.log(emptyIndexes);
-      }, 2000);
+      doComputerMove();
     }
+  }, [currentTurn]);
+
+  function doComputerMove() {
+    //get the empty squares
+    const emptyIndexes = board
+      .map((square, index) => (square === "" ? index : null))
+      .filter(Boolean);
+
+    //wait for 1 seconds
+    setTimeout(() => {
+      placePiece(_.shuffle(emptyIndexes)[0]);
+    }, 1000);
+    setCurrentTurn(currentTurn === player1 ? player2 : player1);
   }
 
   function dealWithSection(index1, index2, index3) {
