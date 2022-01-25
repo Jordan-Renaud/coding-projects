@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../../styles/tic-tac-toe.module.scss";
 import { useEffect } from "react/cjs/react.development";
+import { shuffle } from "lodash";
 
 export default function TicTacToe() {
   //set up variables
@@ -20,7 +21,7 @@ export default function TicTacToe() {
   const [onePlayer, setOnePlayer] = useState(true);
 
   useEffect(() => {
-    if (onePlayer && currentTurn === player2) {
+    if (onePlayer && currentTurn === player2 && winningSquares.length === 0) {
       doComputerMove();
     }
   }, [currentTurn]);
