@@ -1,1 +1,42 @@
-/* No CSS *//*# sourceMappingURL=image-search.module.css.map */
+.ImageSearch {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.ImageSearch .buttonContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  width: 30rem;
+  gap: 0.5rem;
+}
+
+.ImageSearch .buttonContainer button:hover {
+  cursor: pointer;
+}
+
+.ImageSearch .photos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.ImageSearch .photos img {
+  width: 30rem;
+  height: 40rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=image-search.module.css.map */
