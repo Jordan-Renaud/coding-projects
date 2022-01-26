@@ -1,4 +1,5 @@
 import { createApi } from "unsplash-js";
+import { useState } from "react";
 import styles from "../../styles/image-search.module.scss";
 
 const unsplash = createApi({
@@ -8,10 +9,10 @@ const unsplash = createApi({
 const topics = ["cats", "dogs", "mice"];
 
 export default function ImageSearch() {
-  function searchImagesFromTopics(event) {
-    const searchTerm = event.target.value;
-    console.log("searching", searchTerm);
+  const [photos, setPhotos] = useState([]);
+  const [searchBarTerm, setSearchBarTerm] = useState("");
 
+  function doApiCall(searchTerm) {
     unsplash.search
       .getPhotos({
         query: searchTerm,
@@ -21,22 +22,38 @@ export default function ImageSearch() {
       })
       .then((results) => {
         if (results.errors) {
-          // handle error here
           console.log("error occurred: ", results.errors[0]);
         } else {
-          // handle success here
-          const photos = results.response;
-          console.log(photos);
+          setPhotos(results.response.results);
         }
       });
+  }
+
+  function searchImagesFromTopics(event) {
+    const searchTerm = event.target.value;
+    doApiCall(searchTerm);
+  }
+
+  function searchImagesFromSearchBar(event) {
+    event.preventDefault();
+    doApiCall(searchBarTerm);
   }
 
   return (
     <div className={styles.ImageSearch}>
       <h1>Image Search</h1>
       <form>
-        <input type="text" placeholder="Search.." name="search" />
-        <button type="submit">Search</button>
+        <input
+          type="text"
+          placeholder="Search.."
+          name="search"
+          value={searchBarTerm}
+          onChange={(e) => setSearchBarTerm(e.target.value)}
+          onKeyPress={(e) => e.key === "Enter" && doApiCall(searchBarTerm)}
+        />
+        <button type="submit" onClick={searchImagesFromSearchBar}>
+          Search
+        </button>
       </form>
       <div className={styles.buttonContainer}>
         {topics.map((topic) => (
@@ -45,7 +62,11 @@ export default function ImageSearch() {
           </button>
         ))}
       </div>
-      <div></div>
+      <div className={styles.photos}>
+        {photos.map((photo) => (
+          <img src={photo.urls.small} />
+        ))}
+      </div>
     </div>
   );
 }
