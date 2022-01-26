@@ -8,16 +8,28 @@ const unsplash = createApi({
 const topics = ["cats", "dogs", "mice"];
 
 export default function ImageSearch() {
-  unsplash.photos.get({ photoId: "N0e6W2WDa5U" }).then((result) => {
-    if (result.errors) {
-      // handle error here
-      console.log("error occurred: ", result.errors[0]);
-    } else {
-      // handle success here
-      const photo = result.response;
-      console.log(photo);
-    }
-  });
+  function searchImagesFromTopics(event) {
+    const searchTerm = event.target.value;
+    console.log("searching", searchTerm);
+
+    unsplash.search
+      .getPhotos({
+        query: searchTerm,
+        page: 1,
+        perPage: 10,
+        orderBy: "relevant",
+      })
+      .then((results) => {
+        if (results.errors) {
+          // handle error here
+          console.log("error occurred: ", results.errors[0]);
+        } else {
+          // handle success here
+          const photos = results.response;
+          console.log(photos);
+        }
+      });
+  }
 
   return (
     <div className={styles.ImageSearch}>
@@ -28,7 +40,9 @@ export default function ImageSearch() {
       </form>
       <div className={styles.buttonContainer}>
         {topics.map((topic) => (
-          <button>{topic}</button>
+          <button key={topic} value={topic} onClick={searchImagesFromTopics}>
+            {topic}
+          </button>
         ))}
       </div>
       <div></div>
