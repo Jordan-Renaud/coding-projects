@@ -17,7 +17,7 @@ export default function ImageSearch() {
       .getPhotos({
         query: searchTerm,
         page: 1,
-        perPage: 10,
+        perPage: 12,
         orderBy: "relevant",
       })
       .then((results) => {
