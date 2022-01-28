@@ -1,0 +1,8 @@
+.SimonGame {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=simon-game.module.css.map */

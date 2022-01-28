@@ -11,6 +11,7 @@ export const projects = [
   { title: "Twitch", link: "/projects/twitch-streamers" },
   { title: "Image Search", link: "/projects/image-search" },
   { title: "Tic Tac Toe", link: "/projects/tic-tac-toe" },
+  { title: "Simon Game", link: "/projects/simon-game" },
 ];
 
 export const TwitchStreamerData = [
