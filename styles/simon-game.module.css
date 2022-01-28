@@ -4,5 +4,29 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-items: center;
+}
+
+.SimonGame .gameBoard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.SimonGame .gameBoard .square {
+  width: 10rem;
+  height: 10rem;
+  border: none;
+}
+
+.SimonGame .gameBoard .square.highlighted {
+  -webkit-filter: opacity(50%);
+          filter: opacity(50%);
+}
+
+.SimonGame .gameBoard .square:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=simon-game.module.css.map */
