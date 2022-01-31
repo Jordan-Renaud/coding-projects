@@ -2,6 +2,12 @@
   display: grid;
   justify-content: center;
   justify-items: center;
+
+  .setup {
+    display: grid;
+    gap: 0.5rem;
+  }
+
   .gameBoard {
     display: grid;
     grid-template-columns: 1fr 1fr;

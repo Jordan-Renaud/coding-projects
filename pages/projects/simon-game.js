@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
+import { random } from "lodash";
 import styles from "../../styles/simon-game.module.scss";
 
 export default function SimonGame() {
@@ -24,11 +25,34 @@ export default function SimonGame() {
   //game play variables
   const [clickedSequence, setClickedSequence] = useState([]);
   const [sequence, setSequence] = useState([]);
+  const [isPlayerTurn, setIsPlayerTurn] = useState(false);
 
   useEffect(() => {
     setSquares([...Array(Number(numberOfSquares)).keys()]);
     console.log(numberOfSquares);
   }, [numberOfSquares]);
+
+  function startGame(event) {
+    event.preventDefault();
+    computerDoMove();
+  }
+
+  function computerDoMove() {
+    //add an item to squence
+    const newSquence = [...sequence, random(0, numberOfSquares - 1)];
+    console.log(newSquence);
+    setSequence(newSquence);
+
+    //play back sequence
+    newSquence.forEach((square, index) =>
+      setTimeout(() => {
+        highlight(square);
+      }, 600 * index)
+    );
+
+    //set it to player's turn
+    setIsPlayerTurn(true);
+  }
 
   function handleClick({ target: { value: square } }) {
     highlight(square);
@@ -39,13 +63,13 @@ export default function SimonGame() {
     setHighlightedSquare(Number(square));
     setTimeout(() => {
       setHighlightedSquare(null);
-    }, 500);
+    }, 300);
   }
 
   return (
     <div className={styles.SimonGame}>
       <h1>Simon Game</h1>
-      <form>
+      <form className={styles.setup}>
         <label htmlFor="square-amount">Choose how many squares:</label>
         <select
           value={numberOfSquares}
@@ -58,11 +82,13 @@ export default function SimonGame() {
           <option value="8">8</option>
           <option value="10">10</option>
         </select>
+        <button onClick={startGame}>Start</button>
       </form>
       <div className={styles.gameBoard}>
         {squares.map((square) => (
           <button
             key={square}
+            disabled={!isPlayerTurn}
             className={`${styles.square} ${
               highlightedSquare === square
                 ? styles.highlighted

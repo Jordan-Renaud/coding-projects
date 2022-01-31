@@ -7,6 +7,12 @@
   justify-items: center;
 }
 
+.SimonGame .setup {
+  display: -ms-grid;
+  display: grid;
+  gap: 0.5rem;
+}
+
 .SimonGame .gameBoard {
   display: -ms-grid;
   display: grid;
