@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import styles from "../../styles/simon-game.module.scss";
 
 export default function SimonGame() {
+  //set up
   const colours = [
     { normal: "#ED1216", highlighted: "#F04245" },
     { normal: "#DB7224", highlighted: "#E28F50" },
@@ -15,12 +17,29 @@ export default function SimonGame() {
     { normal: "#7C7D83", highlighted: "#96979C" },
   ];
 
-  const [squares, setSquares] = useState([...Array(4).keys()]);
+  const [numberOfSquares, setNumberOfSquares] = useState(4);
+  const [squares, setSquares] = useState([...Array(numberOfSquares).keys()]);
   const [highlightedSquare, setHighlightedSquare] = useState(null);
 
-  function handleClick(event) {
-    const square = event.target.value;
+  //game play variables
+  const [clickedSequence, setClickedSequence] = useState([]);
+  const [sequence, setSequence] = useState([]);
+
+  useEffect(() => {
+    setSquares([...Array(Number(numberOfSquares)).keys()]);
+    console.log(numberOfSquares);
+  }, [numberOfSquares]);
+
+  function handleClick({ target: { value: square } }) {
+    highlight(square);
+    setClickedSequence([...clickedSequence, square]);
+  }
+
+  function highlight(square) {
     setHighlightedSquare(Number(square));
+    setTimeout(() => {
+      setHighlightedSquare(null);
+    }, 500);
   }
 
   return (
@@ -28,7 +47,12 @@ export default function SimonGame() {
       <h1>Simon Game</h1>
       <form>
         <label htmlFor="square-amount">Choose how many squares:</label>
-        <select name="square-amount" id="square-amount">
+        <select
+          value={numberOfSquares}
+          onChange={({ target: { value } }) => setNumberOfSquares(value)}
+          name="square-amount"
+          id="square-amount"
+        >
           <option value="4">4</option>
           <option value="6">6</option>
           <option value="8">8</option>
