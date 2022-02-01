@@ -35,4 +35,8 @@
 .SimonGame .gameBoard .square:hover {
   cursor: pointer;
 }
+
+.SimonGame .gameBoard .square.disabled {
+  cursor: not-allowed;
+}
 /*# sourceMappingURL=simon-game.module.css.map */

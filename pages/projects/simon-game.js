@@ -29,7 +29,6 @@ export default function SimonGame() {
 
   useEffect(() => {
     setSquares([...Array(Number(numberOfSquares)).keys()]);
-    console.log(numberOfSquares);
   }, [numberOfSquares]);
 
   function startGame(event) {
@@ -51,7 +50,10 @@ export default function SimonGame() {
     );
 
     //set it to player's turn
-    setIsPlayerTurn(true);
+    //TO DO: add a timeout for setting this
+    setTimeout(() => {
+      setIsPlayerTurn(true);
+    }, 600 * newSquence.length);
   }
 
   function handleClick({ target: { value: square } }) {
@@ -93,7 +95,7 @@ export default function SimonGame() {
               highlightedSquare === square
                 ? styles.highlighted
                 : "notHighlighted"
-            }`}
+            } ${isPlayerTurn ? "canClick" : styles.disabled}`}
             onClick={handleClick}
             value={square}
             style={{ backgroundColor: colours[square].normal }}
