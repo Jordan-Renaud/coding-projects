@@ -23,13 +23,25 @@ export default function SimonGame() {
   const [highlightedSquare, setHighlightedSquare] = useState(null);
 
   //game play variables
-  const [clickedSequence, setClickedSequence] = useState([]);
   const [sequence, setSequence] = useState([]);
   const [isPlayerTurn, setIsPlayerTurn] = useState(false);
+  const [currentItemInSequence, setCurrentItemInSequence] = useState(0);
 
+  //sets up the board at the specified number of squares
   useEffect(() => {
     setSquares([...Array(Number(numberOfSquares)).keys()]);
   }, [numberOfSquares]);
+
+  useEffect(() => {
+    if (currentItemInSequence === sequence.length && sequence.length !== 0) {
+      console.log("~");
+      console.log("computer turn");
+      setIsPlayerTurn(false);
+      setTimeout(() => {
+        computerDoMove();
+      }, 1000);
+    }
+  }, [currentItemInSequence]);
 
   function startGame(event) {
     event.preventDefault();
@@ -42,6 +54,9 @@ export default function SimonGame() {
     console.log(newSquence);
     setSequence(newSquence);
 
+    //resets tracker for user
+    setCurrentItemInSequence(0);
+
     //play back sequence
     newSquence.forEach((square, index) =>
       setTimeout(() => {
@@ -49,16 +64,36 @@ export default function SimonGame() {
       }, 600 * index)
     );
 
-    //set it to player's turn
-    //TO DO: add a timeout for setting this
+    //set it to player's turn after computer is done
     setTimeout(() => {
       setIsPlayerTurn(true);
+      startPlayersTurn();
     }, 600 * newSquence.length);
   }
 
   function handleClick({ target: { value: square } }) {
+    //checks
+    console.log("computer sequence: ", sequence);
+    console.log("correct answer: ", sequence[currentItemInSequence]);
+    console.log("current number in the array", currentItemInSequence);
+    console.log("square clicked", square);
+
+    //highlight clicked square
     highlight(square);
-    setClickedSequence([...clickedSequence, square]);
+
+    //check to see if it matches with the computer
+    if (Number(square) === sequence[currentItemInSequence]) {
+      //correct answer
+      console.log("correct");
+    } else {
+      //wrong answer
+      console.log("wrong");
+    }
+
+    //update current item to track where the user is in the sequence
+    setCurrentItemInSequence(currentItemInSequence + 1);
+
+    //checks if players turn is done
   }
 
   function highlight(square) {
@@ -66,6 +101,10 @@ export default function SimonGame() {
     setTimeout(() => {
       setHighlightedSquare(null);
     }, 300);
+  }
+
+  function startPlayersTurn() {
+    console.log("players turn");
   }
 
   return (
