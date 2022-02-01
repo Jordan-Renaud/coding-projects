@@ -26,16 +26,32 @@ export default function SimonGame() {
   const [sequence, setSequence] = useState([]);
   const [isPlayerTurn, setIsPlayerTurn] = useState(false);
   const [currentItemInSequence, setCurrentItemInSequence] = useState(0);
+  const [mistakesLeft, setMistakesLeft] = useState(3);
+  const [gameMode, setGameMode] = useState("normal");
 
   //sets up the board at the specified number of squares
   useEffect(() => {
     setSquares([...Array(Number(numberOfSquares)).keys()]);
   }, [numberOfSquares]);
 
+  //sets up the game mode
+  useEffect(() => {
+    if (gameMode === "normal") {
+      setMistakesLeft(3);
+    } else {
+      setMistakesLeft(1);
+    }
+    setCurrentItemInSequence(0);
+    setIsPlayerTurn(false);
+    setSequence([]);
+  }, [gameMode]);
+
+  //checks for end of player's turn
   useEffect(() => {
     if (currentItemInSequence === sequence.length && sequence.length !== 0) {
       console.log("~");
       console.log("computer turn");
+
       setIsPlayerTurn(false);
       setTimeout(() => {
         computerDoMove();
@@ -43,9 +59,22 @@ export default function SimonGame() {
     }
   }, [currentItemInSequence]);
 
-  function startGame(event) {
-    event.preventDefault();
-    computerDoMove();
+  //checks for all mistakes used up
+  useEffect(() => {
+    if (mistakesLeft === 0) {
+      alert("You lost");
+      resetAndStartGame();
+    }
+  }, [mistakesLeft]);
+
+  function resetAndStartGame() {
+    setMistakesLeft(3);
+    setCurrentItemInSequence(0);
+    setIsPlayerTurn(false);
+    setSequence([]);
+    setTimeout(() => {
+      computerDoMove();
+    }, 1000);
   }
 
   function computerDoMove() {
@@ -67,7 +96,6 @@ export default function SimonGame() {
     //set it to player's turn after computer is done
     setTimeout(() => {
       setIsPlayerTurn(true);
-      startPlayersTurn();
     }, 600 * newSquence.length);
   }
 
@@ -81,19 +109,12 @@ export default function SimonGame() {
     //highlight clicked square
     highlight(square);
 
-    //check to see if it matches with the computer
-    if (Number(square) === sequence[currentItemInSequence]) {
-      //correct answer
-      console.log("correct");
-    } else {
-      //wrong answer
-      console.log("wrong");
-    }
+    //check for a mistake
+    Number(square) !== sequence[currentItemInSequence] &&
+      setMistakesLeft(mistakesLeft - 1);
 
     //update current item to track where the user is in the sequence
     setCurrentItemInSequence(currentItemInSequence + 1);
-
-    //checks if players turn is done
   }
 
   function highlight(square) {
@@ -101,10 +122,6 @@ export default function SimonGame() {
     setTimeout(() => {
       setHighlightedSquare(null);
     }, 300);
-  }
-
-  function startPlayersTurn() {
-    console.log("players turn");
   }
 
   return (
@@ -123,8 +140,25 @@ export default function SimonGame() {
           <option value="8">8</option>
           <option value="10">10</option>
         </select>
-        <button onClick={startGame}>Start</button>
+        <select
+          value={gameMode}
+          onChange={({ target: { value } }) => setGameMode(value)}
+          name="game-mode"
+          id="game-mode"
+        >
+          <option value="normal">Normal</option>
+          <option value="strict">Strict</option>
+        </select>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            resetAndStartGame();
+          }}
+        >
+          Start
+        </button>
       </form>
+      <p>Number of Mistakes left: {mistakesLeft}</p>
       <div className={styles.gameBoard}>
         {squares.map((square) => (
           <button
