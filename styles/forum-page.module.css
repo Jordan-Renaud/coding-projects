@@ -1,0 +1,8 @@
+.ForumPage {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=forum-page.module.css.map */

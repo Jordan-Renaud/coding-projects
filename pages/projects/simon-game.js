@@ -38,7 +38,7 @@ export default function SimonGame() {
   useEffect(() => {
     if (gameMode === "normal") {
       setMistakesLeft(3);
-    } else {
+    } else if (gameMode === "strict") {
       setMistakesLeft(1);
     }
     setCurrentItemInSequence(0);
@@ -159,6 +159,7 @@ export default function SimonGame() {
         </button>
       </form>
       <p>Number of Mistakes left: {mistakesLeft}</p>
+      <p>Length of Sequence: {sequence.length}</p>
       <div className={styles.gameBoard}>
         {squares.map((square) => (
           <button
