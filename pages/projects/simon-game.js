@@ -119,9 +119,15 @@ export default function SimonGame() {
 
   function highlight(square) {
     setHighlightedSquare(Number(square));
+    playSound(square);
     setTimeout(() => {
       setHighlightedSquare(null);
     }, 300);
+  }
+
+  function playSound(square) {
+    const audio = new Audio(`/simon-game-sounds/simonSound${square}.mp3`);
+    audio.play();
   }
 
   return (
