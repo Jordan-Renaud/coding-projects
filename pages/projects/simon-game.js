@@ -24,12 +24,13 @@ export default function SimonGame() {
   const [audioFiles, setAudioFiles] = useState([]);
 
   //game play variables
-  const [sequence, setSequence] = useState([]);
+  const [sequence, setSequence] = useState(null);
   const [isPlayerTurn, setIsPlayerTurn] = useState(false);
   const [currentItemInSequence, setCurrentItemInSequence] = useState(0);
   const [mistakesLeft, setMistakesLeft] = useState(3);
   const [gameMode, setGameMode] = useState("normal");
 
+  //map sounds on to setAudioFiles
   useEffect(() => {
     const audios = [...Array(10).keys()].map(
       (n) => new Audio(`/simon-game-sounds/simonSound${n}.mp3`)
@@ -51,13 +52,18 @@ export default function SimonGame() {
     }
     setCurrentItemInSequence(0);
     setIsPlayerTurn(false);
-    setSequence([]);
+    sequence && setSequence([]);
   }, [gameMode]);
 
   //checks for end of player's turn
   useEffect(() => {
-    if (currentItemInSequence === sequence.length && sequence.length !== 0) {
+    if (
+      sequence &&
+      currentItemInSequence === sequence.length &&
+      sequence.length !== 0
+    ) {
       setIsPlayerTurn(false);
+      console.log("player turn ended");
       setTimeout(() => {
         computerDoMove();
       }, 1000);
@@ -72,17 +78,26 @@ export default function SimonGame() {
     }
   }, [mistakesLeft]);
 
+  //check for empty sequence before computer moves (on game reset)
+  useEffect(() => {
+    if (sequence && sequence.length === 0) {
+      console.log(sequence);
+      setTimeout(() => {
+        computerDoMove();
+      }, 1000);
+    }
+  }, [sequence]);
+
   function resetAndStartGame() {
+    console.log("reset");
     setMistakesLeft(3);
     setCurrentItemInSequence(0);
     setIsPlayerTurn(false);
     setSequence([]);
-    setTimeout(() => {
-      computerDoMove();
-    }, 1000);
   }
 
   function computerDoMove() {
+    console.log("computer move");
     //add an item to squence
     const newSquence = [...sequence, random(0, numberOfSquares - 1)];
     setSequence(newSquence);
@@ -163,7 +178,7 @@ export default function SimonGame() {
         </button>
       </form>
       <p>Number of Mistakes left: {mistakesLeft}</p>
-      <p>Length of Sequence: {sequence.length}</p>
+      <p>Length of Sequence: {sequence ? sequence.length : 0}</p>
       <div className={styles.gameBoard}>
         {squares.map((square) => (
           <button
