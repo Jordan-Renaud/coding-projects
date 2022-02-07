@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { random } from "lodash";
+
+//confetti imports
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
+
 import styles from "../../styles/simon-game.module.scss";
 
 export default function SimonGame() {
@@ -17,6 +22,7 @@ export default function SimonGame() {
     { normal: "#49322C", highlighted: "#69483F" },
     { normal: "#7C7D83", highlighted: "#96979C" },
   ];
+  const { width, height } = useWindowSize();
 
   const [numberOfSquares, setNumberOfSquares] = useState(4);
   const [squares, setSquares] = useState([...Array(numberOfSquares).keys()]);
@@ -29,6 +35,7 @@ export default function SimonGame() {
   const [currentItemInSequence, setCurrentItemInSequence] = useState(0);
   const [mistakesLeft, setMistakesLeft] = useState(3);
   const [gameMode, setGameMode] = useState("normal");
+  const [playerHasWon, setPlayerHasWon] = useState(false);
 
   //map sounds on to setAudioFiles
   useEffect(() => {
@@ -55,15 +62,22 @@ export default function SimonGame() {
     sequence && setSequence([]);
   }, [gameMode]);
 
-  //checks for end of player's turn
+  //checks for end of player's turn or win
   useEffect(() => {
     if (
+      sequence &&
+      currentItemInSequence === sequence.length &&
+      sequence.length === 20
+    ) {
+      //player has won
+      setPlayerHasWon(true);
+      setIsPlayerTurn(false);
+    } else if (
       sequence &&
       currentItemInSequence === sequence.length &&
       sequence.length !== 0
     ) {
       setIsPlayerTurn(false);
-      console.log("player turn ended");
       setTimeout(() => {
         computerDoMove();
       }, 1000);
@@ -81,7 +95,6 @@ export default function SimonGame() {
   //check for empty sequence before computer moves (on game reset)
   useEffect(() => {
     if (sequence && sequence.length === 0) {
-      console.log(sequence);
       setTimeout(() => {
         computerDoMove();
       }, 1000);
@@ -89,7 +102,7 @@ export default function SimonGame() {
   }, [sequence]);
 
   function resetAndStartGame() {
-    console.log("reset");
+    setPlayerHasWon(false);
     setMistakesLeft(3);
     setCurrentItemInSequence(0);
     setIsPlayerTurn(false);
@@ -97,7 +110,6 @@ export default function SimonGame() {
   }
 
   function computerDoMove() {
-    console.log("computer move");
     //add an item to squence
     const newSquence = [...sequence, random(0, numberOfSquares - 1)];
     setSequence(newSquence);
@@ -145,6 +157,7 @@ export default function SimonGame() {
 
   return (
     <div className={styles.SimonGame}>
+      {playerHasWon && <Confetti width={width} height={height} />}
       <h1>Simon Game</h1>
       <form className={styles.setup}>
         <label htmlFor="square-amount">Choose how many squares:</label>
