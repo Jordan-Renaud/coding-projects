@@ -25,3 +25,10 @@ export const TwitchStreamerData = [
   { name: "RobotCaleb", logo: "", isOnline: false, details: "Offline" },
   { name: "noobs2ninjas", logo: "", isOnline: false, details: "Offline" },
 ];
+
+export const writeUpContent = {
+  currentWeatherApp: {
+    title: "Current Weather App",
+    link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
+  },
+};

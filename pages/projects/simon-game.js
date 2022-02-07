@@ -21,6 +21,7 @@ export default function SimonGame() {
   const [numberOfSquares, setNumberOfSquares] = useState(4);
   const [squares, setSquares] = useState([...Array(numberOfSquares).keys()]);
   const [highlightedSquare, setHighlightedSquare] = useState(null);
+  const [audioFiles, setAudioFiles] = useState([]);
 
   //game play variables
   const [sequence, setSequence] = useState([]);
@@ -28,6 +29,13 @@ export default function SimonGame() {
   const [currentItemInSequence, setCurrentItemInSequence] = useState(0);
   const [mistakesLeft, setMistakesLeft] = useState(3);
   const [gameMode, setGameMode] = useState("normal");
+
+  useEffect(() => {
+    const audios = [...Array(10).keys()].map(
+      (n) => new Audio(`/simon-game-sounds/simonSound${n}.mp3`)
+    );
+    setAudioFiles(audios);
+  }, []);
 
   //sets up the board at the specified number of squares
   useEffect(() => {
@@ -49,9 +57,6 @@ export default function SimonGame() {
   //checks for end of player's turn
   useEffect(() => {
     if (currentItemInSequence === sequence.length && sequence.length !== 0) {
-      console.log("~");
-      console.log("computer turn");
-
       setIsPlayerTurn(false);
       setTimeout(() => {
         computerDoMove();
@@ -80,7 +85,6 @@ export default function SimonGame() {
   function computerDoMove() {
     //add an item to squence
     const newSquence = [...sequence, random(0, numberOfSquares - 1)];
-    console.log(newSquence);
     setSequence(newSquence);
 
     //resets tracker for user
@@ -100,12 +104,6 @@ export default function SimonGame() {
   }
 
   function handleClick({ target: { value: square } }) {
-    //checks
-    console.log("computer sequence: ", sequence);
-    console.log("correct answer: ", sequence[currentItemInSequence]);
-    console.log("current number in the array", currentItemInSequence);
-    console.log("square clicked", square);
-
     //highlight clicked square
     highlight(square);
 
@@ -126,8 +124,8 @@ export default function SimonGame() {
   }
 
   function playSound(square) {
-    const audio = new Audio(`/simon-game-sounds/simonSound${square}.mp3`);
-    audio.play();
+    audioFiles[square].currentTime = 0;
+    audioFiles[square].play();
   }
 
   return (
