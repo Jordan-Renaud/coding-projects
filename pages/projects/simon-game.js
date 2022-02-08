@@ -107,7 +107,7 @@ export default function SimonGame() {
 
   function resetAndStartGame() {
     setPlayerHasWon(false);
-    setMistakesLeft(3);
+    setMistakesLeft(gameMode === "normal" ? 3 : 1);
     setCurrentItemInSequence(0);
     setIsPlayerTurn(false);
     setSequence([]);
