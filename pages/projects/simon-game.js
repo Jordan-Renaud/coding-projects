@@ -37,6 +37,7 @@ export default function SimonGame() {
   const [mistakesLeft, setMistakesLeft] = useState(3);
   const [gameMode, setGameMode] = useState("normal");
   const [playerHasWon, setPlayerHasWon] = useState(false);
+  const [playerHasLost, setPlayerHasLost] = useState(false);
   const [madeMistakeInRound, setMadeMistakeInRound] = useState(false);
 
   //map sounds on to setAudioFiles
@@ -79,7 +80,8 @@ export default function SimonGame() {
       sequence &&
       currentItemInSequence === sequence.length &&
       sequence.length !== 0 &&
-      !madeMistakeInRound
+      !madeMistakeInRound &&
+      !playerHasLost
     ) {
       setIsPlayerTurn(false);
       setTimeout(() => {
@@ -91,8 +93,8 @@ export default function SimonGame() {
   //checks for all mistakes used up
   useEffect(() => {
     if (mistakesLeft === 0) {
-      alert("You lost");
-      resetAndStartGame();
+      setPlayerHasLost(true);
+      setIsPlayerTurn(false);
     }
   }, [mistakesLeft]);
 
@@ -107,6 +109,7 @@ export default function SimonGame() {
 
   function resetAndStartGame() {
     setPlayerHasWon(false);
+    setPlayerHasLost(false);
     setMistakesLeft(gameMode === "normal" ? 3 : 1);
     setCurrentItemInSequence(0);
     setIsPlayerTurn(false);
@@ -117,12 +120,9 @@ export default function SimonGame() {
     setMadeMistakeInRound(false);
     let newSquence = sequence;
     //add an item to squence
-    console.log("computer move is: ", type);
-    console.log("old sequence is: ", newSquence);
     if (type === "new") {
       newSquence = [...sequence, random(0, numberOfSquares - 1)];
       setSequence(newSquence);
-      console.log("new sequence: ", newSquence);
     }
 
     //resets tracker for user
@@ -151,11 +151,12 @@ export default function SimonGame() {
       errorSound.play();
 
       //wait then replay round
-      setTimeout(() => {
-        computerDoMove("repeat");
-      }, 1000);
+      if (mistakesLeft === 0) {
+        setTimeout(() => {
+          computerDoMove("repeat");
+        }, 1000);
+      }
     }
-    console.log("player clicked");
     //highlight clicked square
     highlight(square);
 
@@ -185,6 +186,9 @@ export default function SimonGame() {
   return (
     <div className={styles.SimonGame}>
       {playerHasWon && <Confetti width={width} height={height} />}
+      {playerHasLost && (
+        <Confetti width={width} height={height} colors={["#000000"]} />
+      )}
       <h1>Simon Game</h1>
       <form className={styles.setup}>
         <label htmlFor="square-amount">Choose how many squares:</label>
