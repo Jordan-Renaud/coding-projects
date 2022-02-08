@@ -28,6 +28,7 @@ export default function SimonGame() {
   const [squares, setSquares] = useState([...Array(numberOfSquares).keys()]);
   const [highlightedSquare, setHighlightedSquare] = useState(null);
   const [audioFiles, setAudioFiles] = useState([]);
+  const [errorSound, setErrorSound] = useState();
 
   //game play variables
   const [sequence, setSequence] = useState(null);
@@ -36,6 +37,7 @@ export default function SimonGame() {
   const [mistakesLeft, setMistakesLeft] = useState(3);
   const [gameMode, setGameMode] = useState("normal");
   const [playerHasWon, setPlayerHasWon] = useState(false);
+  const [madeMistakeInRound, setMadeMistakeInRound] = useState(false);
 
   //map sounds on to setAudioFiles
   useEffect(() => {
@@ -43,6 +45,7 @@ export default function SimonGame() {
       (n) => new Audio(`/simon-game-sounds/simonSound${n}.mp3`)
     );
     setAudioFiles(audios);
+    setErrorSound(new Audio(`/simon-game-sounds/simonSoundError.mp3`));
   }, []);
 
   //sets up the board at the specified number of squares
@@ -75,11 +78,12 @@ export default function SimonGame() {
     } else if (
       sequence &&
       currentItemInSequence === sequence.length &&
-      sequence.length !== 0
+      sequence.length !== 0 &&
+      !madeMistakeInRound
     ) {
       setIsPlayerTurn(false);
       setTimeout(() => {
-        computerDoMove();
+        computerDoMove("new");
       }, 1000);
     }
   }, [currentItemInSequence]);
@@ -96,7 +100,7 @@ export default function SimonGame() {
   useEffect(() => {
     if (sequence && sequence.length === 0) {
       setTimeout(() => {
-        computerDoMove();
+        computerDoMove("new");
       }, 1000);
     }
   }, [sequence]);
@@ -109,10 +113,17 @@ export default function SimonGame() {
     setSequence([]);
   }
 
-  function computerDoMove() {
+  function computerDoMove(type) {
+    setMadeMistakeInRound(false);
+    let newSquence = sequence;
     //add an item to squence
-    const newSquence = [...sequence, random(0, numberOfSquares - 1)];
-    setSequence(newSquence);
+    console.log("computer move is: ", type);
+    console.log("old sequence is: ", newSquence);
+    if (type === "new") {
+      newSquence = [...sequence, random(0, numberOfSquares - 1)];
+      setSequence(newSquence);
+      console.log("new sequence: ", newSquence);
+    }
 
     //resets tracker for user
     setCurrentItemInSequence(0);
@@ -131,12 +142,28 @@ export default function SimonGame() {
   }
 
   function handleClick({ target: { value: square } }) {
+    //helper functions
+    function handleMistake() {
+      //mistake is made
+      setMadeMistakeInRound(true);
+
+      //play weird sound
+      errorSound.play();
+
+      //wait then replay round
+      setTimeout(() => {
+        computerDoMove("repeat");
+      }, 1000);
+    }
+    console.log("player clicked");
     //highlight clicked square
     highlight(square);
 
-    //check for a mistake
-    Number(square) !== sequence[currentItemInSequence] &&
+    //checks for a mistake
+    if (Number(square) !== sequence[currentItemInSequence]) {
+      handleMistake();
       setMistakesLeft(mistakesLeft - 1);
+    }
 
     //update current item to track where the user is in the sequence
     setCurrentItemInSequence(currentItemInSequence + 1);
