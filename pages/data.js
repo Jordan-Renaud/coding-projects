@@ -12,7 +12,6 @@ export const projects = [
   { title: "Image Search", link: "/projects/image-search" },
   { title: "Tic Tac Toe", link: "/projects/tic-tac-toe" },
   { title: "Simon Game", link: "/projects/simon-game" },
-  { title: "Forum Page", link: "/projects/forum-page" },
 ];
 
 export const TwitchStreamerData = [
