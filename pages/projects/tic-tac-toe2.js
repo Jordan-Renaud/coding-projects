@@ -13,57 +13,88 @@ function Tile({ position, isHighlighted, piecePlaced, children }) {
   );
 }
 
+function SetupOptions({ setNumberOfPlayers }) {
+  return (
+    <div>
+      <input
+        id="one-player"
+        type="radio"
+        name="player-type"
+        onClick={() => setNumberOfPlayers(1)}
+        defaultChecked
+      />
+      <label htmlFor="one-player">One Player</label>
+      <input
+        id="two-player"
+        type="radio"
+        onClick={() => setNumberOfPlayers(2)}
+        name="player-type"
+      />
+      <label htmlFor="two-player">Two Player</label>
+    </div>
+  );
+}
+
+function Leaderboard({ player1, player2, player1Score, player2Score }) {
+  return (
+    <div>
+      <p>
+        {player1} Wins: {player1Score}
+      </p>
+      <p>
+        {player2} Wins: {player2Score}
+      </p>
+    </div>
+  );
+}
+
+function Board({ tiles, winningTiles, piecePlaced }) {
+  return (
+    <div className={styles.board}>
+      {tiles.map((square, index) => (
+        <Tile
+          position={index}
+          isHighlighted={winningTiles.includes(index)}
+          piecePlaced={piecePlaced}
+        >
+          {square}
+        </Tile>
+      ))}
+    </div>
+  );
+}
+
 export default function TicTacToe2() {
   const {
     currentTurn,
     player1,
     player2,
-    player1Wins,
-    player2Wins,
+    player1Score,
+    player2Score,
     board,
-    winningSquares,
-    doMove,
+    winningTiles,
+    piecePlaced,
   } = {
     board: [""],
-    winningSquares: [],
+    winningTiles: [],
   };
 
   return (
     <div className={styles.TicTacToe}>
       <h1>Tic Tac Toe</h1>
-      <div>
-        <input
-          id="one-player"
-          type="radio"
-          name="player-type"
-          onClick={() => setOnePlayer(true)}
-          defaultChecked
-        />
-        <label htmlFor="one-player">One Player</label>
-        <input
-          id="two-player"
-          type="radio"
-          onClick={() => setOnePlayer(false)}
-          name="player-type"
-        />
-        <label htmlFor="two-player">Two Player</label>
-      </div>
-      <div>
-        <p>Current Turn: {currentTurn}</p>
-        <p>
-          {player1} Wins: {player1Wins}
-        </p>
-        <p>
-          {player2} Wins: {player2Wins}
-        </p>
-      </div>
-      <div className={styles.board}>
-        {board.map((square, index) => (
-          <Tile position={index} isHighlighted={winningSquares.includes(index)}>
-            {square}
-          </Tile>
-        ))}
-      </div>
+      <SetupOptions setNumberOfPlayers={(x) => console.log(x)} />
+      <p>Current Turn: {currentTurn}</p>
+      <Leaderboard
+        player1={player1}
+        player2={player2}
+        player1Score={player1Score}
+        player2Score={player2Score}
+      />
+      <Board
+        tiles={board}
+        winningTiles={winningTiles}
+        piecePlaced={piecePlaced}
+      />
     </div>
   );
 }
