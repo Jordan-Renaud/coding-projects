@@ -97,19 +97,22 @@ function reducer(state, action) {
         currentTurn: initialState.currentTurn,
       };
     case "placePiece":
-      const newBoard = [...state.board];
-      if (newBoard[action.location]) return state;
-      newBoard[action.location] = state.currentTurn;
-
-      return {
-        ...state,
-        board: newBoard,
-        currentTurn:
-          state.currentTurn === state.player1 ? state.player2 : state.player1,
-      };
+      return placePieceReducer(state, action);
     default:
       throw new Error();
   }
+}
+
+function placePieceReducer(state, action) {
+  const newBoard = [...state.board];
+  if (newBoard[action.location]) return state;
+  newBoard[action.location] = state.currentTurn;
+  return {
+    ...state,
+    board: newBoard,
+    currentTurn:
+      state.currentTurn === state.player1 ? state.player2 : state.player1,
+  };
 }
 
 export default function TicTacToe2() {
