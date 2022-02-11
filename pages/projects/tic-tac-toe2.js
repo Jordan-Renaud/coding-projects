@@ -1,3 +1,4 @@
+import { useReducer, useState } from "react";
 import styles from "../../styles/tic-tac-toe.module.scss";
 
 function Tile({ position, isHighlighted, piecePlaced, children }) {
@@ -13,22 +14,25 @@ function Tile({ position, isHighlighted, piecePlaced, children }) {
   );
 }
 
-function SetupOptions({ setNumberOfPlayers }) {
+function SetupOptions({ setNumberOfPlayers, gameMode }) {
   return (
     <div>
       <input
         id="one-player"
         type="radio"
-        name="player-type"
-        onClick={() => setNumberOfPlayers(1)}
-        defaultChecked
+        name="one-player"
+        onChange={() => setNumberOfPlayers(1)}
+        value={1}
+        checked={gameMode === "onePlayer"}
       />
       <label htmlFor="one-player">One Player</label>
       <input
         id="two-player"
         type="radio"
-        onClick={() => setNumberOfPlayers(2)}
-        name="player-type"
+        onChange={() => setNumberOfPlayers(2)}
+        name="two-player"
+        value={2}
+        checked={gameMode === "twoPlayer"}
       />
       <label htmlFor="two-player">Two Player</label>
     </div>
@@ -53,6 +57,7 @@ function Board({ tiles, winningTiles, piecePlaced }) {
     <div className={styles.board}>
       {tiles.map((square, index) => (
         <Tile
+          key={index}
           position={index}
           isHighlighted={winningTiles.includes(index)}
           piecePlaced={piecePlaced}
@@ -64,7 +69,31 @@ function Board({ tiles, winningTiles, piecePlaced }) {
   );
 }
 
+const initialState = {
+  player1: "X",
+  player2: "O",
+  player1Score: 0,
+  player2Score: 0,
+  currentTurn: "X",
+  board: [...Array(9)],
+  winningTiles: [],
+  gameMode: "twoPlayer",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "changeGameMode":
+      return {
+        ...state,
+        gameMode: action.numberOfPlayers === 1 ? "onePlayer" : "twoPlayer",
+      };
+    default:
+      throw new Error();
+  }
+}
+
 export default function TicTacToe2() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const {
     currentTurn,
     player1,
@@ -74,15 +103,19 @@ export default function TicTacToe2() {
     board,
     winningTiles,
     piecePlaced,
-  } = {
-    board: [""],
-    winningTiles: [],
-  };
+    gameMode,
+  } = state;
 
   return (
     <div className={styles.TicTacToe}>
       <h1>Tic Tac Toe</h1>
-      <SetupOptions setNumberOfPlayers={(x) => console.log(x)} />
+      <SetupOptions
+        setNumberOfPlayers={(number) =>
+          dispatch({ type: "changeGameMode", numberOfPlayers: number })
+        }
+        gameMode={gameMode}
+      />
+      {gameMode}
       <p>Current Turn: {currentTurn}</p>
       <Leaderboard
         player1={player1}
