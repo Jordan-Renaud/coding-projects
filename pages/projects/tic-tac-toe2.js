@@ -106,13 +106,44 @@ function reducer(state, action) {
 function placePieceReducer(state, action) {
   const newBoard = [...state.board];
   if (newBoard[action.location]) return state;
+  //update board
   newBoard[action.location] = state.currentTurn;
+  //check for win
+  winningPositions.forEach((winningPosition) => {
+    if (checkWinningSection(newBoard, ...winningPosition)) {
+      // there is a winner
+      console.log("winn");
+    }
+  });
+
   return {
     ...state,
     board: newBoard,
     currentTurn:
       state.currentTurn === state.player1 ? state.player2 : state.player1,
   };
+}
+
+const winningPositions = [
+  //horizontal checks
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  //verical checks
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  //diagonal checks
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+function checkWinningSection(board, index1, index2, index3) {
+  return (
+    board[index1] &&
+    board[index1] === board[index2] &&
+    board[index1] === board[index3]
+  );
 }
 
 export default function TicTacToe2() {
