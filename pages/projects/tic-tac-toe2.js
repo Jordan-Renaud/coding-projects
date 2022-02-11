@@ -109,10 +109,11 @@ function placePieceReducer(state, action) {
   //update board
   newBoard[action.location] = state.currentTurn;
   //check for win
+  let newWinningTiles = [];
   winningPositions.forEach((winningPosition) => {
     if (checkWinningSection(newBoard, ...winningPosition)) {
       // there is a winner
-      console.log("winn");
+      newWinningTiles = winningPosition;
     }
   });
 
@@ -121,6 +122,7 @@ function placePieceReducer(state, action) {
     board: newBoard,
     currentTurn:
       state.currentTurn === state.player1 ? state.player2 : state.player1,
+    winningTiles: newWinningTiles,
   };
 }
 
