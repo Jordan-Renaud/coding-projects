@@ -7,7 +7,7 @@ function Tile({ position, isHighlighted, piecePlaced, children }) {
       key={position}
       value={position}
       className={`${styles.square} ${isHighlighted && styles.winningSquare}`}
-      onClick={piecePlaced}
+      onClick={() => piecePlaced(position)}
     >
       {children}
     </button>
@@ -87,6 +87,22 @@ function reducer(state, action) {
         ...state,
         gameMode: action.numberOfPlayers === 1 ? "onePlayer" : "twoPlayer",
       };
+    case "newGame":
+      return { ...initialState, gameMode: state.gameMode };
+    case "newRound":
+      return {
+        ...state,
+        board: initialState.board,
+        winningTiles: initialState.winningTiles,
+        currentTurn: initialState.currentTurn,
+      };
+    case "placePiece":
+      const newBoard = [...state.board];
+      newBoard[action.location] = state.currentTurn;
+      console.log("newBoard", newBoard);
+      console.log("oldboard", state.board);
+
+      return { ...state, board: newBoard };
     default:
       throw new Error();
   }
@@ -102,7 +118,6 @@ export default function TicTacToe2() {
     player2Score,
     board,
     winningTiles,
-    piecePlaced,
     gameMode,
   } = state;
 
@@ -115,7 +130,8 @@ export default function TicTacToe2() {
         }
         gameMode={gameMode}
       />
-      {gameMode}
+      <button onClick={() => dispatch({ type: "newGame" })}>New Game</button>
+      <button onClick={() => dispatch({ type: "newRound" })}>New Round</button>
       <p>Current Turn: {currentTurn}</p>
       <Leaderboard
         player1={player1}
@@ -126,7 +142,7 @@ export default function TicTacToe2() {
       <Board
         tiles={board}
         winningTiles={winningTiles}
-        piecePlaced={piecePlaced}
+        piecePlaced={(location) => dispatch({ type: "placePiece", location })}
       />
     </div>
   );
