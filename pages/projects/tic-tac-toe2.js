@@ -106,8 +106,10 @@ function reducer(state, action) {
 function placePieceReducer(state, action) {
   const newBoard = [...state.board];
   if (newBoard[action.location]) return state;
+
   //update board
   newBoard[action.location] = state.currentTurn;
+
   //check for win
   let newWinningTiles = [];
   winningPositions.forEach((winningPosition) => {
@@ -117,12 +119,25 @@ function placePieceReducer(state, action) {
     }
   });
 
+  //add score
+  let newPlayer1Score = state.player1Score;
+  let newPlayer2Score = state.player2Score;
+  if (newWinningTiles.length > 0) {
+    if (state.currentTurn === state.player1) {
+      newPlayer1Score++;
+    } else if (state.currentTurn === state.player2) {
+      newPlayer2Score++;
+    }
+  }
+
   return {
     ...state,
     board: newBoard,
     currentTurn:
       state.currentTurn === state.player1 ? state.player2 : state.player1,
     winningTiles: newWinningTiles,
+    player1Score: newPlayer1Score,
+    player2Score: newPlayer2Score,
   };
 }
 
