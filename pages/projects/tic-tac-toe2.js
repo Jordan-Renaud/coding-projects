@@ -98,11 +98,15 @@ function reducer(state, action) {
       };
     case "placePiece":
       const newBoard = [...state.board];
+      if (newBoard[action.location]) return state;
       newBoard[action.location] = state.currentTurn;
-      console.log("newBoard", newBoard);
-      console.log("oldboard", state.board);
 
-      return { ...state, board: newBoard };
+      return {
+        ...state,
+        board: newBoard,
+        currentTurn:
+          state.currentTurn === state.player1 ? state.player2 : state.player1,
+      };
     default:
       throw new Error();
   }
