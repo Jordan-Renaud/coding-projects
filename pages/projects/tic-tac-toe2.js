@@ -182,14 +182,16 @@ export default function TicTacToe2() {
     winningTiles,
     gameMode,
   } = state;
+  const hasWon = winningTiles.length > 0;
+  const hasDrawn = !board.some((tile) => tile === undefined);
 
   useEffect(() => {
-    if (winningTiles.length > 0) {
+    if (hasWon || hasDrawn) {
       //reset after win
       const timer = setTimeout(() => dispatch({ type: "newRound" }), 1500);
       return () => clearTimeout(timer);
     }
-  }, [winningTiles]);
+  }, [hasWon, hasDrawn]);
 
   return (
     <div className={styles.TicTacToe}>
