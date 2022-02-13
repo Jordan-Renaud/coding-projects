@@ -80,6 +80,20 @@ const initialState = {
   gameMode: "twoPlayer",
 };
 
+const winningPositions = [
+  //horizontal checks
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  //verical checks
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  //diagonal checks
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
 function reducer(state, action) {
   switch (action.type) {
     case "changeGameMode":
@@ -105,7 +119,10 @@ function reducer(state, action) {
 
 function placePieceReducer(state, action) {
   const newBoard = [...state.board];
+  //prevent tile being overwritten
   if (newBoard[action.location]) return state;
+  //prevent title placement after game won
+  if (state.winningTiles.length > 0) return state;
 
   //update board
   newBoard[action.location] = state.currentTurn;
@@ -140,20 +157,6 @@ function placePieceReducer(state, action) {
     player2Score: newPlayer2Score,
   };
 }
-
-const winningPositions = [
-  //horizontal checks
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  //verical checks
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  //diagonal checks
-  [0, 4, 8],
-  [2, 4, 6],
-];
 
 function checkWinningSection(board, index1, index2, index3) {
   return (
@@ -202,3 +205,4 @@ export default function TicTacToe2() {
     </div>
   );
 }
+``;
