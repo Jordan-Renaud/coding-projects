@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from "react";
 import styles from "../../styles/tic-tac-toe.module.scss";
+import { shuffle } from "lodash";
 
 function Tile({ position, isHighlighted, piecePlaced, children }) {
   return (
@@ -193,6 +194,20 @@ export default function TicTacToe2() {
     }
   }, [hasWon, hasDrawn]);
 
+  //check for computers turn
+  useEffect(() => {
+    //get the empty squares
+    if (currentTurn === player2 && gameMode === "onePlayer") {
+      const timer = setTimeout(() => {
+        const emptyIndexes = board
+          .map((square, index) => (square === undefined ? index : null))
+          .filter(Boolean);
+        dispatch({ type: "placePiece", location: shuffle(emptyIndexes)[0] });
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [currentTurn]);
+
   return (
     <div className={styles.TicTacToe}>
       <h1>Tic Tac Toe</h1>
@@ -214,9 +229,11 @@ export default function TicTacToe2() {
       <Board
         tiles={board}
         winningTiles={winningTiles}
-        piecePlaced={(location) => dispatch({ type: "placePiece", location })}
+        piecePlaced={(location) => {
+          dispatch({ type: "placePiece", location });
+          //compute place piece
+        }}
       />
     </div>
   );
 }
-``;
