@@ -99,6 +99,9 @@ function reducer(state, action) {
     case "changeGameMode":
       return {
         ...state,
+        board: initialState.board,
+        winningTiles: initialState.winningTiles,
+        currentTurn: initialState.currentTurn,
         gameMode: action.numberOfPlayers === 1 ? "onePlayer" : "twoPlayer",
       };
     case "newGame":
