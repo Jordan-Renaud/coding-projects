@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 import styles from "../../styles/tic-tac-toe.module.scss";
 
 function Tile({ position, isHighlighted, piecePlaced, children }) {
@@ -140,6 +140,7 @@ function placePieceReducer(state, action) {
   let newPlayer1Score = state.player1Score;
   let newPlayer2Score = state.player2Score;
   if (newWinningTiles.length > 0) {
+    //timeout then
     if (state.currentTurn === state.player1) {
       newPlayer1Score++;
     } else if (state.currentTurn === state.player2) {
@@ -178,6 +179,14 @@ export default function TicTacToe2() {
     winningTiles,
     gameMode,
   } = state;
+
+  useEffect(() => {
+    if (winningTiles.length > 0) {
+      //reset after win
+      const timer = setTimeout(() => dispatch({ type: "newRound" }), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [winningTiles]);
 
   return (
     <div className={styles.TicTacToe}>
