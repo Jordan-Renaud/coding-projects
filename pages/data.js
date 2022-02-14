@@ -29,11 +29,10 @@ export const TwitchStreamerData = [
 // title: "title",
 // link: "link",
 // about: "about",
-// userStories: ["",""]
+// userStories: ["",""],
 // whatHappened: "What did I do",
-// keywords: ["", ""]
+// keywords: ["", ""],
 // challenges: "what are some challenges I faced",
-// learnt: "what are new things I learnt",
 // future: "what are some things I would do differently in the future"
 
 export const writeUpContent = {
@@ -56,10 +55,26 @@ export const writeUpContent = {
       "Geolocation API",
       "react-spinner",
     ],
-    //TODO: add spinner + error handling then do challenges + learnt
+    //TODO: add spinner + error handling then do challenges
     challenges: "what are some challenges I faced",
-    learnt: "what are new things I learnt",
     future:
-      "The good thing about this project was that I already had the know-how to get it up to working standards pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code, and paying attention to best practises.",
+      "The good thing about this project was that I already had the know-how to get it up to working standards pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code and paying attention to best practices.",
+  },
+  wikipedia: {
+    title: "Wikipedia Viewer",
+    link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-wikipedia-viewer",
+    about:
+      "The goal of this project was to create a preview of searched Wikipedia pages, that then link to their corresponding entry.",
+    userStories: [
+      "I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.",
+      "I can click a button to see a random Wikipedia entry.",
+    ],
+    whatHappened:
+      "I started this project by breaking down the steps to solve small problems. Get the input, create the call, handle the JSON, and display the data.",
+    keywords: ["useState", "axios", "Wikipedia API"],
+    challenges:
+      "While this project was similar to the Current Weather project, using the Wikipedia API and the method encodeURIComponent() were new learning challenges. The Wikipedia API gave me some interesting challenges. It was a step up in difficulty from other APIs I have used in the past but allowed me to familiarise myself with the new terminology and various methods. I also found encodeURIComponent() was a helpful addition that I will bear in mind for future use.",
+    future:
+      "If I were to take another look at this project, I would work on simplifying superfluous functions. The majority of the functions here could be replaced as inline/anonymous.",
   },
 };
