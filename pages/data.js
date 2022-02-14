@@ -25,9 +25,19 @@ export const TwitchStreamerData = [
   { name: "noobs2ninjas", logo: "", isOnline: false, details: "Offline" },
 ];
 
+// Questions:
+// title: "title",
+// link: "link",
+// about: "about",
+// whatHappened: "What did I do",
+// challenges: "what are some challenges I faced",
+// learnt: "what are new things I learnt",
+// future: "what are some things I would do differently in the future"
+
 export const writeUpContent = {
   currentWeatherApp: {
     title: "Current Weather App",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
+    about: "",
   },
 };
