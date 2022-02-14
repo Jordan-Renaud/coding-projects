@@ -29,7 +29,9 @@ export const TwitchStreamerData = [
 // title: "title",
 // link: "link",
 // about: "about",
+// userStories: ["",""]
 // whatHappened: "What did I do",
+// keywords: ["", ""]
 // challenges: "what are some challenges I faced",
 // learnt: "what are new things I learnt",
 // future: "what are some things I would do differently in the future"
@@ -38,6 +40,26 @@ export const writeUpContent = {
   currentWeatherApp: {
     title: "Current Weather App",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
-    about: "",
+    about:
+      "This is a classic beginner problem that I have tackled a couple of times before (seen HERE!! and HERE!!). The goal is to get the current weather for the location of the user.",
+    userStories: [
+      "I can see the weather in my current location.",
+      "I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.",
+      "I can push a button to toggle between Fahrenheit and Celsius.",
+    ],
+    whatHappened:
+      "Starting this project, I followed a similar problem breakdown as I had previously. I got the location using the Geolocation API, followed by using Axios to create an API call and receive a JSON response. Since I had done this before, I wanted to increase the complexity by adding a randomised loading spinner for each page reload.",
+    keywords: [
+      "axios",
+      "useState",
+      "useEffect",
+      "Geolocation API",
+      "react-spinner",
+    ],
+    //TODO: add spinner + error handling then do challenges + learnt
+    challenges: "what are some challenges I faced",
+    learnt: "what are new things I learnt",
+    future:
+      "The good thing about this project was that I already had the know-how to get it up to working standards pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code, and paying attention to best practises.",
   },
 };
