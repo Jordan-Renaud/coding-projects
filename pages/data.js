@@ -25,18 +25,9 @@ export const TwitchStreamerData = [
   { name: "noobs2ninjas", logo: "", isOnline: false, details: "Offline" },
 ];
 
-// Questions:
-// title: "title",
-// link: "link",
-// about: "about",
-// userStories: ["",""],
-// whatHappened: "What did I do",
-// keywords: ["", ""],
-// challenges: "what are some challenges I faced",
-// future: "what are some things I would do differently in the future"
-
-export const writeUpContent = {
-  currentWeatherApp: {
+export const writeUpContent = [
+  {
+    pagePath: "current-weather",
     title: "Current Weather App",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
     about:
@@ -60,7 +51,8 @@ export const writeUpContent = {
     future:
       "The good thing about this project was that I already had the know-how to get it up to working standards pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code and paying attention to best practices.",
   },
-  wikipedia: {
+  {
+    pagePath: "wikipedia-viewer",
     title: "Wikipedia Viewer",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-wikipedia-viewer",
     about:
@@ -77,4 +69,48 @@ export const writeUpContent = {
     future:
       "If I were to take another look at this project, I would work on simplifying superfluous functions. The majority of the functions here could be replaced as inline/anonymous.",
   },
-};
+  {
+    pagePath: "twitch-streamers",
+    title: "Twitch Streamers Online",
+    link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/use-the-twitch-json-api",
+    about: "about",
+    userStories: ["", ""],
+    whatHappened: "What did I do",
+    keywords: ["", ""],
+    challenges: "what are some challenges I faced",
+    future: "what are some things I would do differently in the future",
+  },
+  {
+    pagePath: "image-search",
+    title: "title",
+    link: "link",
+    about: "about",
+    userStories: ["", ""],
+    whatHappened: "What did I do",
+    keywords: ["", ""],
+    challenges: "what are some challenges I faced",
+    future: "what are some things I would do differently in the future",
+  },
+  {
+    pagePath: "tic-tac-toe",
+    title: "title",
+    link: "link",
+    about: "about",
+    userStories: ["", ""],
+    whatHappened: "What did I do",
+    keywords: ["", ""],
+    challenges: "what are some challenges I faced",
+    future: "what are some things I would do differently in the future",
+  },
+  {
+    pagePath: "simon-game",
+    title: "title",
+    link: "link",
+    about: "about",
+    userStories: ["", ""],
+    whatHappened: "What did I do",
+    keywords: ["", ""],
+    challenges: "what are some challenges I faced",
+    future: "what are some things I would do differently in the future",
+  },
+];
