@@ -5,6 +5,9 @@ export default function WriteUp({ content }) {
       <a href={content.link} target="_blank">
         freecodecamp link
       </a>
+      {content.keywords.map((keyword) => (
+        <span key={keyword}>{keyword}</span>
+      ))}
       <p>{content.about}</p>
       <ul>
         {content.userStories.map((userStory, index) => (
