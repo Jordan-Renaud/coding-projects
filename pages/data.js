@@ -38,7 +38,7 @@ export const writeUpContent = [
       "I can push a button to toggle between Fahrenheit and Celsius.",
     ],
     whatHappened:
-      "Starting this project, I followed a similar problem breakdown as I had previously. I got the location using the Geolocation API, followed by using Axios to create an API call and receive a JSON response. Since I had done this before, I wanted to increase the complexity by adding a randomised loading spinner for each page reload.",
+      "Starting this project, I followed a similar problem breakdown as I had previously. I got the location using the Geolocation API, followed by using Axios to fetch weather data from an API and receive a JSON response. Since I had done this before, I wanted to increase the complexity by adding a randomised loading spinner for each page reload.",
     keywords: [
       "axios",
       "useState",
@@ -49,25 +49,25 @@ export const writeUpContent = [
     //TODO: add spinner + error handling then do challenges
     challenges: "what are some challenges I faced",
     future:
-      "The good thing about this project was that I already had the know-how to get it up to working standards pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code and paying attention to best practices.",
+      "The good thing about this project was that I already had the know-how to get it working pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code and paying attention to best practices.",
   },
   {
     pagePath: "wikipedia-viewer",
     title: "Wikipedia Viewer",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-wikipedia-viewer",
     about:
-      "The goal of this project was to create a preview of searched Wikipedia pages, that then link to their corresponding entry.",
+      "The goal of this project was to create a preview of Wikipedia pages based on a search query, that then link to their corresponding entry.",
     userStories: [
       "I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.",
       "I can click a button to see a random Wikipedia entry.",
     ],
     whatHappened:
-      "I started this project by breaking down the steps to solve small problems. Get the input, create the call, handle the JSON, and display the data.",
+      "I started this project by breaking it down into smaller steps to solve. Get the input, make a request to the API, handle the JSON, and display the data.",
     keywords: ["useState", "axios", "Wikipedia API"],
     challenges:
-      "While this project was similar to the Current Weather project, using the Wikipedia API and the method encodeURIComponent() were new learning challenges. The Wikipedia API gave me some interesting challenges. It was a step up in difficulty from other APIs I have used in the past but allowed me to familiarise myself with the new terminology and various methods. I also found encodeURIComponent() was a helpful addition that I will bear in mind for future use.",
+      "While this project was similar to the Current Weather project, using the Wikipedia API and the method encodeURIComponent() were new learning challenges. The Wikipedia API was a step up in difficulty from other APIs I have used in the past but allowed me to familiarise myself with new terminology and various methods. I found encodeURIComponent() was helpful because it make constructing a URL easy so I did not have to manually replace characters and trim white space. I will bear this in mind for future use.",
     future:
-      "If I were to take another look at this project, I would work on simplifying superfluous functions. The majority of the functions here could be replaced as inline/anonymous.",
+      "If I were to take another look at this project, I would work on inlining superfluous functions. The majority of the functions here could be anonymous which would make it easier to read.",
   },
   {
     pagePath: "twitch-streamers",

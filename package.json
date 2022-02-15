@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "embla-carousel-react": "^6.0.2",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",

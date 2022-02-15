@@ -34,8 +34,8 @@ export default function WikipediaViewer() {
     axios(url).then(handleJSON);
   }
 
-  function handleJSON(JSON) {
-    const pagesJSON = JSON.data.query.pages;
+  function handleJSON(json) {
+    const pagesJSON = json.data.query.pages;
     setResults(
       ...results,
       Object.keys(pagesJSON).map((pageID) => {

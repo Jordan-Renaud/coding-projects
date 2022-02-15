@@ -39,11 +39,11 @@ export default function TwitchStreamers() {
     }
   }
 
-  function handleData(JSON) {
-    const name = JSON.name;
-    const isOnline = JSON.partner || JSON.mature;
-    const profilePic = JSON.logo;
-    const details = isOnline ? `${JSON.game}: ${JSON.status}` : "Offline";
+  function handleData(json) {
+    const name = json.name;
+    const isOnline = json.partner || json.mature;
+    const profilePic = json.logo;
+    const details = isOnline ? `${json.game}: ${json.status}` : "Offline";
 
     return {
       name: name,
