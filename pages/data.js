@@ -118,7 +118,8 @@ export const writeUpContent = [
     pagePath: "simon-game",
     title: "Build a Simon Game",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-simon-game",
-    about: "about",
+    about:
+      "The task set for this project is to create a repeating light memory game. It is based on the cult classic game, Simon(LINK HEREERERER).",
     userStories: [
       "I am presented with a random series of button presses.",
       "Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.",
@@ -129,9 +130,12 @@ export const writeUpContent = [
       "I can play in strict mode where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.",
       "I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.",
     ],
-    whatHappened: "What did I do",
-    keywords: ["", ""],
-    challenges: "what are some challenges I faced",
-    future: "what are some things I would do differently in the future",
+    whatHappened:
+      "This game required more complex logic than the projects that had come before. The way I navigated this was to write comments in pseudo-code in the layout the program logic would require. This was key, in the end, to not only break down the steps needed to complete the project but also to create comments that allowed a quicker understanding of the code.",
+    keywords: ["useState", "useEffect"],
+    challenges:
+      "There were more challenges in this project than you see at face value. Many instances of state were required, such as mistakes made, sequence of lights, whose turns it is.",
+    future:
+      "If I were to approach the Simon game project again, there are a few things I would change. The method useReducer() would be highly useful in this instance, it would save me clutter in the code as well as simplify the majority of the functions required to get the game running.",
   },
 ];
