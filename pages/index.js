@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { colours, projects } from "./data";
+import Typist from "react-typist";
 import useEmblaCarousel from "embla-carousel-react";
 
 export default function Home() {
@@ -23,7 +24,10 @@ export default function Home() {
         />
       </Head>
       <main>
-        <h1>Coding Projects</h1>
+        <h1>
+          <Typist>FUN</Typist>
+          Coding Projects
+        </h1>
         <h2>
           Projects based off the freeCodeCamp{" "}
           <a
@@ -35,11 +39,11 @@ export default function Home() {
           .
         </h2>
 
-        <p>colours</p>
+        {/* <p>colours</p>
         <p className={styles.tourmaline}>#85a1ac</p>
         <p className={styles.peri}>#6868ac</p>
         <p className={styles.pink}>#e9435e</p>
-        <p className={styles.cornsilk}>#ecc371</p>
+        <p className={styles.cornsilk}>#ecc371</p> */}
 
         <div className={styles.caroselContainer}>
           <div className={styles.carosel} ref={emblaRef}>
