@@ -1,9 +1,36 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
-import { colours, projects } from "./data";
+import { useState } from "react";
+import { projects } from "./data";
 import Typist from "react-typist";
 import useEmblaCarousel from "embla-carousel-react";
+
+function Title({ texts }) {
+  const [currentTextCounter, setCurrentTextCounter] = useState(0);
+  const timer = setTimeout(
+    () =>
+      currentTextCounter < texts.length - 1
+        ? setCurrentTextCounter(currentTextCounter + 1)
+        : setCurrentTextCounter(0),
+    3000
+  );
+
+  return (
+    <h1>
+      <Typist
+        onTypingDone={() => clearTimeout(timer)}
+        startDelay={500}
+        avgTypingDelay={150}
+        key={currentTextCounter}
+      >
+        {texts[currentTextCounter]}
+      </Typist>
+      CODING <br />
+      PROJECTS
+    </h1>
+  );
+}
 
 export default function Home() {
   const [emblaRef] = useEmblaCarousel({
@@ -24,10 +51,7 @@ export default function Home() {
         />
       </Head>
       <main>
-        <h1>
-          <Typist>FUN</Typist>
-          Coding Projects
-        </h1>
+        <Title texts={["FUN", "TAKE HOME", "LEARNING"]} />
         <h2>
           Projects based off the freeCodeCamp{" "}
           <a
