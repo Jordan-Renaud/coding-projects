@@ -30,8 +30,13 @@ export const writeUpContent = [
     pagePath: "current-weather",
     title: "Current Weather App",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
-    about:
-      "This is a classic beginner problem that I have tackled a couple of times before (seen HERE!! and HERE!!). The goal is to get the current weather for the location of the user.",
+    about: `This is a classic beginner problem that I have tackled a couple of times before, ${(
+      <a href="https://weather-app-jrenaud.netlify.app/">
+        once in vanilla JavaScript
+      </a>
+    )} and ${(
+      <a href="https://weather-app-jrenaud.netlify.app/">once in React</a>
+    )}. The goal is to get the current weather for the location of the user.`,
     userStories: [
       "I can see the weather in my current location.",
       "I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.",
@@ -71,18 +76,22 @@ export const writeUpContent = [
   },
   {
     pagePath: "twitch-streamers",
-    title: "Twitch Streamers Online",
+    title: "Use the Twitch JSON API",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/use-the-twitch-json-api",
-    about: "about",
+    about:
+      "The purpose of this project is to display a select number of Twitch streamers with their stream details and whether they are online or offline.",
     userStories: [
       "I can see whether freeCodeCamp is currently streaming on Twitch.tv.",
       "I can click the status output and be sent directly to the freeCodeCamp's Twitch.tv channel.",
       "if a Twitch user is currently streaming, I can see additional details about what they are streaming.",
     ],
-    whatHappened: "What did I do",
-    keywords: ["", ""],
-    challenges: "what are some challenges I faced",
-    future: "what are some things I would do differently in the future",
+    whatHappened:
+      "To create the Twitch Streamer Viewer, I started by looking at the Fetch API. In the past, I have used Axios. While this has been a great introduction to requests and responses, I wanted to explore a more commonly used built-in API. After the hard part of getting the correct JSON, displaying the data correctly was relatively straightforward using the filter() method.",
+    keywords: ["useState", "useEffect", "Fetch API"],
+    challenges:
+      "In preparation for using the Twitch API, I read through the documentation to understand which optional query parameters were needed for the project. The Twitch API requires an API key, however, FreeCodeCamp provides a workaround URL to use instead. While this was helpful in regards to the API key, it incurred separate issues due to outdated documentation on FreeCodeCamp's end. After an hour of research and experimentation on which URL to use for the API request, it works!",
+    future:
+      "Looking at how I would improve this project, I would look at how to write proper error handling. Currently, I am simply setting and logging the error to the console. I would prefer the user to be informed of what has happened and how to proceed.",
   },
   {
     pagePath: "image-search",
