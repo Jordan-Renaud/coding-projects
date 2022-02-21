@@ -3,13 +3,9 @@ import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import Title from "../components/home-page/Title";
 import { projects } from "./data";
-import useEmblaCarousel from "embla-carousel-react";
 
 export default function Home() {
-  const [emblaRef] = useEmblaCarousel({
-    dragFree: true,
-    containScroll: "trimSnaps",
-  });
+  console.log(projects);
 
   return (
     <div className={styles.Home}>
@@ -35,26 +31,13 @@ export default function Home() {
           </a>
           .
         </h2>
-
-        {/* <p>colours</p>
-        <p className={styles.tourmaline}>#85a1ac</p>
-        <p className={styles.peri}>#6868ac</p>
-        <p className={styles.pink}>#e9435e</p>
-        <p className={styles.cornsilk}>#ecc371</p> */}
-
-        <div className={styles.caroselContainer}>
-          <div className={styles.carosel} ref={emblaRef}>
-            <div className={styles.projectsContainer}>
-              {projects.map((project) => (
-                <Link key={project.title} href={project.link}>
-                  <div className={styles.project}>
-                    <a className={styles.link}>{project.title}</a>
-                  </div>
-                </Link>
-              ))}
+        {projects.map((project) => (
+          <Link key={project.title} href={project.link}>
+            <div className={styles.project}>
+              <a className={styles.link}>{project.title}</a>
             </div>
-          </div>
-        </div>
+          </Link>
+        ))}
       </main>
 
       <footer>Jordan Renaud 2022</footer>

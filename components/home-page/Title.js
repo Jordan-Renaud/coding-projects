@@ -15,7 +15,6 @@ export default function Title({ texts }) {
     return word.length > 4 ? 500 * word.length : 2000;
   }
 
-  //TODO: https://github.com/jstejada/react-typist look at delayGenerator
   return (
     <h1>
       <Typist
