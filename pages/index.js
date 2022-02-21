@@ -1,12 +1,10 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import Title from "../components/home-page/Title";
 import { projects } from "./data";
+import styles from "../styles/home-page/Home.module.scss";
 
 export default function Home() {
-  console.log(projects);
-
   return (
     <div className={styles.Home}>
       <Head>
