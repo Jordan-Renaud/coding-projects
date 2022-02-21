@@ -2,6 +2,7 @@ import { createApi } from "unsplash-js";
 import { useState } from "react";
 import styles from "../../styles/image-search.module.scss";
 
+//TODO: make not public
 const unsplash = createApi({
   accessKey: process.env.NEXT_PUBLIC_API_KEY,
 });

@@ -97,14 +97,15 @@ export const writeUpContent = [
     pagePath: "image-search",
     title: "Build an Image Search Abstraction Layer",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-an-image-search-abstraction-layer",
-    about: "about",
+    about:
+      "The original project brief on FreeCodeCamp was somewhat vague when describing the purpose of said project. Due to this, I pivoted the project to instead look at the Unsplash API. The new brief was to use the API to search for images with a query provided by the user. Below are updated user stories relating to the new project.",
     userStories: [
-      "You can get the image URLs, description and page URLs for a set of images relating to a given search string.",
-      "You can paginate through the responses by adding a ?page=2 parameter to the URL.",
+      "You can get images relating to a given search string.",
       "You can get a list of the most recently submitted search strings.",
     ],
-    whatHappened: "What did I do",
-    keywords: ["", ""],
+    whatHappened:
+      "When looking at the Image Search project, I started by looking at the Unsplash API. This API uses a key so I learned how to store variables in the ENV file. As well as this, I learnt how to use the SDK surrounding Unsplash. I like how this looks in the code, makes it look simple and clean.",
+    keywords: ["createApi from unsplash-js", "useState"],
     challenges: "what are some challenges I faced",
     future: "what are some things I would do differently in the future",
   },

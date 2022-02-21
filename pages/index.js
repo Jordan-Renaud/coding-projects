@@ -16,6 +16,7 @@ function Title({ texts }) {
     3000
   );
 
+  //TO DO: https://github.com/jstejada/react-typist look at delayGenerator
   return (
     <h1>
       <Typist
