@@ -1,3 +1,25 @@
 .ProjectCard {
-  color: white;
+  justify-self: center;
+  background-color: rgba(101, 105, 100, 0.15);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 10px rgba(160, 167, 158, 0.15),
+    0px 0px 10px rgb(3, 12, 1);
+
+  width: 150px;
+  height: 150px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .link {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(241, 233, 212);
+  }
 }

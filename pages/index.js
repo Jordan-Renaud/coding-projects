@@ -22,13 +22,15 @@ export default function Home() {
             Take Home Projects
           </a>
         </h2>
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            link={project.link}
-            title={project.title}
-          />
-        ))}
+        <div className={styles.projectContainer}>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.title}
+              link={project.link}
+              title={project.title}
+            />
+          ))}
+        </div>
       </main>
 
       <footer>Jordan Renaud 2022</footer>
