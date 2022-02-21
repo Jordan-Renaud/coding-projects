@@ -8,8 +8,12 @@ export default function Title({ texts }) {
       currentTextCounter < texts.length - 1
         ? setCurrentTextCounter(currentTextCounter + 1)
         : setCurrentTextCounter(0),
-    3000
+    getLineDelay(texts[currentTextCounter])
   );
+
+  function getLineDelay(word) {
+    return word.length > 4 ? 500 * word.length : 2000;
+  }
 
   //TODO: https://github.com/jstejada/react-typist look at delayGenerator
   return (
