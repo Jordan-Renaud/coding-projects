@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import Title from "../components/home-page/Title";
+import ProjectCard from "../components/home-page/ProjectCard";
 import { projects, titleWords } from "./data";
 import styles from "../styles/home-page/Home.module.scss";
 
@@ -23,11 +23,11 @@ export default function Home() {
           </a>
         </h2>
         {projects.map((project) => (
-          <Link key={project.title} href={project.link}>
-            <div className={styles.project}>
-              <a className={styles.link}>{project.title}</a>
-            </div>
-          </Link>
+          <ProjectCard
+            key={project.title}
+            link={project.link}
+            title={project.title}
+          />
         ))}
       </main>
 
