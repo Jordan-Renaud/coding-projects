@@ -4,8 +4,8 @@ import styles from "../../styles/home-page/Title.module.scss";
 
 export default function Title({ texts }) {
   const [currentTextCounter, setCurrentTextCounter] = useState(0);
-  const waitingTime = (word) => (word.length > 4 ? 400 * word.length : 2000);
 
+  const waitingTime = (word) => (word.length > 4 ? 400 * word.length : 2000);
   const timer = setTimeout(
     () =>
       currentTextCounter < texts.length - 1
@@ -24,8 +24,8 @@ export default function Title({ texts }) {
       >
         {texts[currentTextCounter]}
       </Typist>
-      CODING <br />
-      PROJECTS
+      coding <br />
+      projects
     </h1>
   );
 }

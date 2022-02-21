@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Title from "../components/home-page/Title";
-import { projects } from "./data";
+import { projects, titleWords } from "./data";
 import styles from "../styles/home-page/Home.module.scss";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Title texts={["FUN", "TAKE HOME", "LEARNING"]} />
+        <Title texts={titleWords} />
         <h2>
           Projects based off the freeCodeCamp{" "}
           <a
