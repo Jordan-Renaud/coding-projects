@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=Home.module.css.map */
+.Home {
+  margin: 10px;
+}
+
+.Home .content {
+  display: -ms-grid;
+  display: grid;
+}
+
+.Home .subheading {
+  font-weight: normal;
+  text-align: right;
+}
+/*# sourceMappingURL=Home.module.css.map */

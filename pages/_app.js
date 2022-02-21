@@ -10,8 +10,17 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <header className="toolbar">
-        <h2 className="name link">Jordan Renaud</h2>
-        <h2>/coding-projects</h2>
+        <a
+          href="https://jordan-renaud.netlify.app/"
+          target="_blank"
+          className="link"
+        >
+          Jordan Renaud
+        </a>
+        <span>/</span>
+        <Link href="/">
+          <a className="link">coding-projects</a>
+        </Link>
       </header>
       <Component {...pageProps} />
       {writeUpContent.map((content) => {

@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: black;
-  color: white;
+  background-color: #082002;
+  color: #f1e9d4;
 }
 
 * {
@@ -16,29 +16,16 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.toolbar h2 {
-  font-size: 1rem;
-  font-weight: normal;
+  margin: 5px;
 }
 
 .link {
-  color: #85a1ac;
-  -webkit-text-decoration: underline 0.1em #85a1ac;
-          text-decoration: underline 0.1em #85a1ac;
-  text-underline-offset: 0.2em;
-  -webkit-transition: text-underline-offset 300ms, color 300ms, -webkit-text-decoration-color 300ms;
-  transition: text-underline-offset 300ms, color 300ms, -webkit-text-decoration-color 300ms;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms, color 300ms;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms, color 300ms, -webkit-text-decoration-color 300ms;
+  color: #f1e9d4;
+  text-underline-offset: 20%;
 }
 
 .link:hover {
   cursor: pointer;
-  color: #6868ac;
-  -webkit-text-decoration-color: #6868ac;
-          text-decoration-color: #6868ac;
-  text-underline-offset: 0.4em;
+  text-underline-offset: 20%;
 }
 /*# sourceMappingURL=globals.css.map */

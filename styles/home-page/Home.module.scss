@@ -1,2 +1,11 @@
 .Home {
+  margin: 10px;
+  .content {
+    display: grid;
+  }
+
+  .subheading {
+    font-weight: normal;
+    text-align: right;
+  }
 }

@@ -8,20 +8,19 @@ export default function Home() {
   return (
     <div className={styles.Home}>
       <Head>
-        <title>Coding Projects</title>
+        <title>coding projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={styles.content}>
         <Title texts={titleWords} />
-        <h2>
+        <h2 className={styles.subheading}>
           Projects based off the freeCodeCamp{" "}
           <a
-            className={styles.link}
+            className="link"
             href="https://www.freecodecamp.org/learn/coding-interview-prep/#take-home-projects"
           >
             Take Home Projects
           </a>
-          .
         </h2>
         {projects.map((project) => (
           <Link key={project.title} href={project.link}>

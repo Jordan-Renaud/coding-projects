@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: black;
-  color: white;
+  background-color: rgb(8, 32, 2);
+  color: rgb(241, 233, 212);
 }
 
 * {
@@ -13,23 +13,15 @@ body {
 
 .toolbar {
   display: flex;
-  h2 {
-    font-size: 1rem;
-    font-weight: normal;
-  }
+  margin: 5px;
 }
 
 .link {
-  color: #85a1ac;
-  text-decoration: underline 0.1em #85a1ac;
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms,
-    color 300ms;
+  color: rgb(241, 233, 212);
+  text-underline-offset: 20%;
 
   &:hover {
     cursor: pointer;
-    color: #6868ac;
-    text-decoration-color: #6868ac;
-    text-underline-offset: 0.4em;
+    text-underline-offset: 20%;
   }
 }
