@@ -34,6 +34,7 @@ function MyApp({ Component, pageProps }) {
             <a className="link">Back to home</a>
           </Link>
         )}
+        <p className="watermark">Jordan Renaud 2022</p>
       </footer>
     </>
   );

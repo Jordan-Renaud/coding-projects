@@ -32,8 +32,6 @@ export default function Home() {
           ))}
         </div>
       </main>
-
-      <footer>Jordan Renaud 2022</footer>
     </div>
   );
 }
