@@ -1,0 +1,51 @@
+.SimonGame {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+.SimonGame .setup {
+  display: -ms-grid;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.SimonGame .gameBoard {
+  background-color: black;
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(100vw - 40px);
+  height: 75vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 20px;
+}
+
+.SimonGame .gameBoard .square {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.SimonGame .gameBoard .square.highlighted {
+  -webkit-filter: opacity(50%);
+          filter: opacity(50%);
+}
+
+.SimonGame .gameBoard .square:hover {
+  cursor: pointer;
+}
+
+.SimonGame .gameBoard .square.disabled {
+  cursor: not-allowed;
+}
+/*# sourceMappingURL=simon-game.module.css.map */

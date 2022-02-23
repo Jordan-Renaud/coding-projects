@@ -5,7 +5,7 @@ import { random } from "lodash";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 
-import styles from "../../styles/simon-game.module.scss";
+import styles from "../../styles/projects/simon-game.module.scss";
 
 export default function SimonGame() {
   //set up
