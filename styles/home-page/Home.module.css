@@ -1,5 +1,5 @@
 .Home {
-  margin: 10px;
+  margin: 30px 10px 0 10px;
 }
 
 .Home .content {
@@ -21,6 +21,6 @@
       grid-template-columns: 1fr 1fr;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  row-gap: 20px;
+  row-gap: 30px;
 }
 /*# sourceMappingURL=Home.module.css.map */

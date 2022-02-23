@@ -12,6 +12,9 @@
   -ms-flex-line-pack: center;
       align-content: center;
   position: relative;
+  border: #f1e9d4 1px solid;
+  -webkit-box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px black;
 }
 
 .ProjectCard:hover {
