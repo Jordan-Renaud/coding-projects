@@ -5,7 +5,9 @@ export default function ProjectCard({ link, key, title }) {
   return (
     <Link key={key} href={link}>
       <div className={styles.ProjectCard}>
-        <p className={styles.link}>/{title}</p>
+        <div className={styles.crtScreen}>
+          <p className={styles.link}>/{title}</p>
+        </div>
       </div>
     </Link>
   );
