@@ -99,10 +99,12 @@ export const writeUpContent = [
       "You can get a list of the most recently submitted search strings.",
     ],
     whatHappened:
-      "When looking at the Image Search project, I started by looking at the Unsplash API. This API uses a key so I learned how to store variables in the ENV file. As well as this, I learnt how to use the SDK surrounding Unsplash. I like how this looks in the code, makes it look simple and clean.",
+      "When I started the Image Search project, I looked at the Unsplash API documentation. This specific API uses a key that prompted me to learn how to store variables in an ENV file. As well as this, I learnt how to use the SDK surrounding Unsplash. I like how this looks in the code, makes it look simple and clean.",
     keywords: ["createApi from unsplash-js", "useState"],
-    challenges: "what are some challenges I faced",
-    future: "what are some things I would do differently in the future",
+    challenges:
+      "Overall, once I figured out how to store API keys securely, this was a relatively simple project. I enjoyed how quick it was to create and it has shown me how far I have come in learning how to code.",
+    future:
+      "Coming back to this project, I would include more details about each image result, such as the photographer and title of the image.",
   },
   {
     pagePath: "tic-tac-toe",
