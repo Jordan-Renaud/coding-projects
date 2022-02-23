@@ -1,22 +1,30 @@
+import styles from "../styles/WriteUp.module.scss";
+
 export default function WriteUp({ content }) {
   return (
-    <div>
-      <h2>{content.title}</h2>
-      <a href={content.link} target="_blank">
-        freecodecamp link
-      </a>
-      {content.keywords.map((keyword) => (
-        <span key={keyword}>{keyword}</span>
-      ))}
-      <p>{content.about}</p>
-      <ul>
-        {content.userStories.map((userStory, index) => (
-          <li key={index}>{`User Story #${index + 1}: ${userStory}`}</li>
+    <div className={styles.WriteUp}>
+      <h2 className={styles.title}>{content.title}</h2>
+      <div className={styles.linkContainer}>
+        <a className="link" href={content.link} target="_blank">
+          freeCodeCamp link
+        </a>
+      </div>
+      <div>
+        {content.keywords.map((keyword) => (
+          <span key={keyword}>{keyword}</span>
         ))}
-      </ul>
-      <p>{content.whatHappened}</p>
-      <p>{content.challenges}</p>
-      <p>{content.future}</p>
+      </div>
+      <article className={styles.content}>
+        <p>{content.about}</p>
+        <ul className={styles.userStories}>
+          {content.userStories.map((userStory, index) => (
+            <li key={index}>{`User Story #${index + 1}: ${userStory}`}</li>
+          ))}
+        </ul>
+        <p>{content.whatHappened}</p>
+        <p>{content.challenges}</p>
+        <p>{content.future}</p>
+      </article>
     </div>
   );
 }

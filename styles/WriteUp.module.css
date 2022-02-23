@@ -1,0 +1,38 @@
+.WriteUp {
+  margin: 30px 10px;
+}
+
+.WriteUp .title {
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.WriteUp .linkContainer {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.WriteUp .content {
+  font-size: 16px;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 30px;
+}
+
+.WriteUp .content .userStories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.WriteUp .content .userStories li {
+  padding: 10px 0;
+}
+
+.WriteUp .content .userStories li:before {
+  content: ">";
+  padding-right: 5px;
+}
+/*# sourceMappingURL=WriteUp.module.css.map */

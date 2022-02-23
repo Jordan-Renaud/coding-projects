@@ -1,0 +1,36 @@
+.WriteUp {
+  margin: 30px 10px;
+
+  .title {
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .linkContainer {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .content {
+    font-size: 16px;
+    display: grid;
+    row-gap: 30px;
+
+    .userStories {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 10px 0;
+
+        &:before {
+          content: ">";
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+}
