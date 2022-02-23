@@ -37,4 +37,20 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.input-item {
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #f1e9d4;
+  color: #082002;
+  border: none;
+  border-radius: 10px;
+}
+
+.projectTitle {
+  margin: 50px;
+  font-size: 40px;
+  font-weight: normal;
+}
 /*# sourceMappingURL=globals.css.map */

@@ -5,7 +5,13 @@
 
   .setup {
     display: grid;
-    gap: 0.5rem;
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .gameInfo {
+    text-align: center;
+    margin-top: 20px;
   }
 
   .gameBoard {

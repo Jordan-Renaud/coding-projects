@@ -31,3 +31,19 @@ body {
   display: grid;
   justify-content: center;
 }
+
+.input-item {
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  background-color: rgb(241, 233, 212);
+  color: rgb(8, 32, 2);
+  border: none;
+  border-radius: 10px;
+}
+
+.projectTitle {
+  margin: 50px;
+  font-size: 40px;
+  font-weight: normal;
+}

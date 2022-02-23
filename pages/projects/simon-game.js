@@ -188,10 +188,11 @@ export default function SimonGame() {
       {playerHasLost && (
         <Confetti width={width} height={height} colors={["#000000"]} />
       )}
-      <h1>Simon Game</h1>
+      <h1 className="projectTitle">/simon-game</h1>
       <form className={styles.setup}>
         <label htmlFor="square-amount">Choose how many squares:</label>
         <select
+          className="input-item"
           value={numberOfSquares}
           onChange={({ target: { value } }) => setNumberOfSquares(value)}
           name="square-amount"
@@ -203,6 +204,7 @@ export default function SimonGame() {
           <option value="10">10</option>
         </select>
         <select
+          className="input-item"
           value={gameMode}
           onChange={({ target: { value } }) => setGameMode(value)}
           name="game-mode"
@@ -212,6 +214,7 @@ export default function SimonGame() {
           <option value="strict">Strict</option>
         </select>
         <button
+          className="input-item"
           onClick={(e) => {
             e.preventDefault();
             resetAndStartGame();
@@ -220,8 +223,11 @@ export default function SimonGame() {
           Start
         </button>
       </form>
-      <p>Number of Mistakes left: {mistakesLeft}</p>
-      <p>Length of Sequence: {sequence ? sequence.length : 0}</p>
+
+      <div className={styles.gameInfo}>
+        <p>Number of Mistakes left: {mistakesLeft}</p>
+        <p>Length of Sequence: {sequence ? sequence.length : 0}</p>
+      </div>
       <div className={styles.gameBoard}>
         {squares.map((square) => (
           <button

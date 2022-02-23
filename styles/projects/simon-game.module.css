@@ -10,7 +10,13 @@
 .SimonGame .setup {
   display: -ms-grid;
   display: grid;
-  gap: 0.5rem;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.SimonGame .gameInfo {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .SimonGame .gameBoard {
