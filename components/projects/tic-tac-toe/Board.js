@@ -1,5 +1,5 @@
 import Tile from "./Tile";
-import styles from "../../../styles/tic-tac-toe.module.scss";
+import styles from "../../../styles/projects/tic-tac-toe.module.scss";
 
 export default function Board({ tiles, winningTiles, piecePlaced }) {
   return (

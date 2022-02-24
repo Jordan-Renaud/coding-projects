@@ -1,4 +1,4 @@
-import styles from "../../../styles/tic-tac-toe.module.scss";
+import styles from "../../../styles/projects/tic-tac-toe.module.scss";
 
 export default function Tile({
   position,

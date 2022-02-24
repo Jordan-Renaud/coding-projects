@@ -3,7 +3,7 @@ import { shuffle } from "lodash";
 import SetupOptions from "../../components/projects/tic-tac-toe/SetupOptions";
 import Leaderboard from "../../components/projects/tic-tac-toe/Leaderboard";
 import Board from "../../components/projects/tic-tac-toe/Board";
-import styles from "../../styles/tic-tac-toe.module.scss";
+import styles from "../../styles/projects/tic-tac-toe.module.scss";
 
 const initialState = {
   player1: "X",
@@ -145,15 +145,27 @@ export default function TicTacToe() {
 
   return (
     <div className={styles.TicTacToe}>
-      <h1>Tic Tac Toe</h1>
+      <h1 className="projectTitle">Tic Tac Toe</h1>
       <SetupOptions
         setNumberOfPlayers={(number) =>
           dispatch({ type: "changeGameMode", numberOfPlayers: number })
         }
         gameMode={gameMode}
       />
-      <button onClick={() => dispatch({ type: "newGame" })}>New Game</button>
-      <button onClick={() => dispatch({ type: "newRound" })}>New Round</button>
+      <div className={styles.buttonContainer}>
+        <button
+          className="input-item"
+          onClick={() => dispatch({ type: "newGame" })}
+        >
+          New Game
+        </button>
+        <button
+          className="input-item"
+          onClick={() => dispatch({ type: "newRound" })}
+        >
+          New Round
+        </button>
+      </div>
       <p>Current Turn: {currentTurn}</p>
       <Leaderboard
         player1={player1}
