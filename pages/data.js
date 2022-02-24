@@ -110,14 +110,16 @@ export const writeUpContent = [
     pagePath: "tic-tac-toe",
     title: "Build a Tic Tac Toe Game",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-tic-tac-toe-game",
-    about: "about",
+    about:
+      "On the surface, this is a simple project. The goal is to create a game of Tic Tac Toe with the option of playing against the computer or another person. ",
     userStories: [
       "I can play a game of Tic Tac Toe with the computer.",
       "My game will reset as soon as it's over so I can play again.",
       "I can choose whether I want to play as X or O.",
     ],
-    whatHappened: "What did I do",
-    keywords: ["", ""],
+    whatHappened:
+      "When I started working on this project, I only vaguely knew of the existence of useReducer. So, I began creating a convoluted web of useEffects, and useStates. It got to the point of being buried so deep in functions, I had to walk away for a few days before tackling it again.",
+    keywords: ["useReducer", "useEffect"],
     challenges: "what are some challenges I faced",
     future: "what are some things I would do differently in the future",
   },

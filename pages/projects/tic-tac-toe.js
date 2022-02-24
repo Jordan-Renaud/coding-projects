@@ -1,74 +1,9 @@
 import { useReducer, useEffect } from "react";
-import styles from "../../styles/tic-tac-toe.module.scss";
 import { shuffle } from "lodash";
-
-function Tile({ position, isHighlighted, piecePlaced, children }) {
-  return (
-    <button
-      key={position}
-      value={position}
-      className={`${styles.square} ${isHighlighted && styles.winningSquare}`}
-      onClick={() => piecePlaced(position)}
-    >
-      {children}
-    </button>
-  );
-}
-
-function SetupOptions({ setNumberOfPlayers, gameMode }) {
-  return (
-    <div>
-      <input
-        id="one-player"
-        type="radio"
-        name="one-player"
-        onChange={() => setNumberOfPlayers(1)}
-        value={1}
-        checked={gameMode === "onePlayer"}
-      />
-      <label htmlFor="one-player">One Player</label>
-      <input
-        id="two-player"
-        type="radio"
-        onChange={() => setNumberOfPlayers(2)}
-        name="two-player"
-        value={2}
-        checked={gameMode === "twoPlayer"}
-      />
-      <label htmlFor="two-player">Two Player</label>
-    </div>
-  );
-}
-
-function Leaderboard({ player1, player2, player1Score, player2Score }) {
-  return (
-    <div>
-      <p>
-        {player1} Wins: {player1Score}
-      </p>
-      <p>
-        {player2} Wins: {player2Score}
-      </p>
-    </div>
-  );
-}
-
-function Board({ tiles, winningTiles, piecePlaced }) {
-  return (
-    <div className={styles.board}>
-      {tiles.map((square, index) => (
-        <Tile
-          key={index}
-          position={index}
-          isHighlighted={winningTiles.includes(index)}
-          piecePlaced={piecePlaced}
-        >
-          {square}
-        </Tile>
-      ))}
-    </div>
-  );
-}
+import SetupOptions from "../../components/projects/tic-tac-toe/SetupOptions";
+import Leaderboard from "../../components/projects/tic-tac-toe/Leaderboard";
+import Board from "../../components/projects/tic-tac-toe/Board";
+import styles from "../../styles/tic-tac-toe.module.scss";
 
 const initialState = {
   player1: "X",
@@ -171,7 +106,7 @@ function checkWinningSection(board, index1, index2, index3) {
   );
 }
 
-export default function TicTacToe2() {
+export default function TicTacToe() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {
     currentTurn,
@@ -231,7 +166,6 @@ export default function TicTacToe2() {
         winningTiles={winningTiles}
         piecePlaced={(location) => {
           dispatch({ type: "placePiece", location });
-          //compute place piece
         }}
       />
     </div>
