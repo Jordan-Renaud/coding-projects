@@ -14,27 +14,39 @@
           align-items: center;
 }
 
-.WikipediaViewer .searchContainer {
-  margin-top: 2rem;
+.WikipediaViewer .inputSection {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  justify-items: center;
+}
+
+.WikipediaViewer .inputSection .searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
 }
 
 .WikipediaViewer .results {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
   width: 80%;
   gap: 2rem;
   margin-top: 2rem;
 }
 
 .WikipediaViewer .results a {
-  color: black;
+  color: #082002;
   padding: 1rem;
   text-decoration: none;
-  background-color: #85a1ac;
+  background-color: #f1e9d4;
   border-radius: 10px;
   -webkit-transition: -webkit-transform 300ms;
   transition: -webkit-transform 300ms;

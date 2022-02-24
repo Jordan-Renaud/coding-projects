@@ -51,23 +51,30 @@ export default function WikipediaViewer() {
 
   return (
     <div className={styles.WikipediaViewer}>
-      <h1>Wikipedia Viewer</h1>
-      <a
-        href="https://en.wikipedia.org/wiki/Special:Random"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Random
-      </a>
-      <div className={styles.searchContainer}>
-        <input
-          type="search"
-          onKeyPress={handleKeyPress}
-          value={searchQuery}
-          onInput={getSearchQuery}
-          aria-label="Search wikipedia"
-        />
-        <button onClick={handleClick}>Search</button>
+      <h1 className="projectTitle">/wikipedia-viewer</h1>
+      <div className={styles.inputSection}>
+        <a
+          className="link"
+          href="https://en.wikipedia.org/wiki/Special:Random"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Random
+        </a>
+        <div className={styles.searchContainer}>
+          <input
+            type="search"
+            onKeyPress={handleKeyPress}
+            value={searchQuery}
+            onInput={getSearchQuery}
+            aria-label="Search wikipedia"
+            className="input-item"
+            placeholder="search..."
+          />
+          <button className="input-item" onClick={handleClick}>
+            Search
+          </button>
+        </div>
       </div>
       <div className={styles.results}>
         {results.map((result) => (

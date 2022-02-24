@@ -4,22 +4,30 @@
   justify-content: center;
   align-items: center;
 
-  .searchContainer {
-    margin-top: 2rem;
+  .inputSection {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    justify-items: center;
+
+    .searchContainer {
+      display: flex;
+      gap: 5px;
+    }
   }
+
   .results {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
     width: 80%;
     gap: 2rem;
     margin-top: 2rem;
 
     a {
-      color: black;
+      color: rgb(8, 32, 2);
       padding: 1rem;
       text-decoration: none;
-      background-color: #85a1ac;
+      background-color: rgb(241, 233, 212);
       border-radius: 10px;
       transition: transform 300ms;
 

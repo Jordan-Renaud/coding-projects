@@ -28,7 +28,6 @@ body {
 
 .link:hover {
   cursor: pointer;
-  text-underline-offset: 20%;
 }
 
 .watermark {
@@ -55,5 +54,6 @@ body {
   margin: 50px;
   font-size: 40px;
   font-weight: normal;
+  text-align: center;
 }
 /*# sourceMappingURL=globals.css.map */
