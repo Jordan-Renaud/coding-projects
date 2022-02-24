@@ -25,13 +25,17 @@ export const writeUpContent = [
     pagePath: "current-weather",
     title: "Current Weather App",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/show-the-local-weather",
-    about: `This is a classic beginner problem that I have tackled a couple of times before, ${(
-      <a href="https://weather-app-jrenaud.netlify.app/">
-        once in vanilla JavaScript
-      </a>
-    )} and ${(
-      <a href="https://weather-app-jrenaud.netlify.app/">once in React</a>
-    )}. The goal is to get the current weather for the location of the user.`,
+    about: (
+      <p>
+        This is a classic beginner problem that I have tackled a couple of times
+        before,
+        <a href="https://weather-app-jrenaud.netlify.app/">
+          once in vanilla JavaScript
+        </a>{" "}
+        and <a href="https://weather-app-jrenaud.netlify.app/">once in React</a>
+        . The goal is to get the current weather for the location of the user.
+      </p>
+    ),
     userStories: [
       "I can see the weather in my current location.",
       "I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.",
@@ -120,8 +124,10 @@ export const writeUpContent = [
     whatHappened:
       "When I started working on this project, I only vaguely knew of the existence of useReducer. So, I began creating a convoluted web of useEffects, and useStates. It got to the point of being buried so deep in functions, I had to walk away for a few days before tackling it again.",
     keywords: ["useReducer", "useEffect"],
-    challenges: "what are some challenges I faced",
-    future: "what are some things I would do differently in the future",
+    challenges:
+      "On my second try (Tic Tac Toe 2: The Reckoning), I explored useReducer. After gutting out the majority of the HTML into separate components, I was left with a more understandable mess to tackle into a reducer. It is safe to say that useReducer quickly become the light of my life, bringing ten functions down to three.",
+    future:
+      "Hands down, I will be exploring useReducer more in the future. I would like to explore it a few more times to make sure I properly grasp the full understanding of it.",
   },
   {
     pagePath: "simon-game",

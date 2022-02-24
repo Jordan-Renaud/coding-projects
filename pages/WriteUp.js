@@ -15,7 +15,7 @@ export default function WriteUp({ content }) {
         ))}
       </div>
       <article className={styles.content}>
-        <p>{content.about}</p>
+        {content.about}
         <ul className={styles.userStories}>
           {content.userStories.map((userStory, index) => (
             <li key={index}>{`User Story #${index + 1}: ${userStory}`}</li>
