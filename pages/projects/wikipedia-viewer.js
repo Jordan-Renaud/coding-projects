@@ -52,7 +52,11 @@ export default function WikipediaViewer() {
   return (
     <div className={styles.WikipediaViewer}>
       <h1>Wikipedia Viewer</h1>
-      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+      <a
+        href="https://en.wikipedia.org/wiki/Special:Random"
+        target="_blank"
+        rel="noreferrer"
+      >
         Random
       </a>
       <div className={styles.searchContainer}>
@@ -71,6 +75,7 @@ export default function WikipediaViewer() {
             href={`http://en.wikipedia.org/?curid=${result.pageNumber}`}
             target="_blank"
             key={result.title}
+            rel="noreferrer"
           >
             <p className={styles.linkTitle}>{result.title}</p>
             <p>{result.extract}</p>

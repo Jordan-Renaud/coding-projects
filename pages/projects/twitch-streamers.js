@@ -85,11 +85,16 @@ export default function TwitchStreamers() {
             }`}
             key={index}
           >
-            <img className={styles.logo} src={streamer.logo} />
+            <img
+              className={styles.logo}
+              src={streamer.logo}
+              alt="streamer logo"
+            />
             <a
               className="link"
               href={`https://www.twitch.tv/${streamer.name}`}
               target="_blank"
+              rel="noreferrer"
             >
               {streamer.name}
             </a>
