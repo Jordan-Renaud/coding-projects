@@ -1,6 +1,6 @@
 import { createApi } from "unsplash-js";
 import { useState } from "react";
-import styles from "../../styles/image-search.module.scss";
+import styles from "../../styles/projects/image-search.module.scss";
 
 //TODO: make not public
 const unsplash = createApi({
