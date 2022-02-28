@@ -1,6 +1,19 @@
 .TicTacToe {
   text-align: center;
 
+  .SetupOptions {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    .playerType {
+      input {
+        accent-color: rgb(241, 233, 212);
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
   .buttonContainer {
     display: grid;
     justify-content: center;
@@ -28,7 +41,7 @@
       }
 
       &.winningSquare {
-        background-color: blue;
+        background-color: rgb(28, 58, 20);
       }
     }
   }
