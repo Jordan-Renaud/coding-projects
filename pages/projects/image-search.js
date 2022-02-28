@@ -43,9 +43,10 @@ export default function ImageSearch() {
 
   return (
     <div className={styles.ImageSearch}>
-      <h1>Image Search</h1>
-      <form>
+      <h1 className="projectTitle">Image Search</h1>
+      <form className={styles.searchContainer}>
         <input
+          className="input-item"
           type="text"
           placeholder="Search.."
           name="search"
@@ -53,13 +54,22 @@ export default function ImageSearch() {
           onChange={(e) => setSearchBarTerm(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && doApiCall(searchBarTerm)}
         />
-        <button type="submit" onClick={searchImagesFromSearchBar}>
+        <button
+          className="input-item"
+          type="submit"
+          onClick={searchImagesFromSearchBar}
+        >
           Search
         </button>
       </form>
       <div className={styles.buttonContainer}>
         {topics.map((topic) => (
-          <button key={topic} value={topic} onClick={searchImagesFromTopics}>
+          <button
+            className="input-item"
+            key={topic}
+            value={topic}
+            onClick={searchImagesFromTopics}
+          >
             {topic}
           </button>
         ))}
