@@ -22,6 +22,7 @@ export default function ImageSearch() {
         orderBy: "relevant",
       })
       .then((results) => {
+        console.log(results);
         if (results.errors) {
           console.log("error occurred: ", results.errors[0]);
         } else {
@@ -65,7 +66,11 @@ export default function ImageSearch() {
       </div>
       <div className={styles.photos}>
         {photos.map((photo) => (
-          <img src={photo.urls.small} />
+          <img
+            key={photo.alt_description}
+            src={photo.urls.small}
+            alt={photo.alt_description}
+          />
         ))}
       </div>
     </div>
