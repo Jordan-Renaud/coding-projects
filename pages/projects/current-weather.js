@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/projects/current-weather.module.scss";
-import { PuffLoader } from "react-spinners";
 
 export default function CurrentWeather() {
   //loader variables
@@ -30,17 +29,20 @@ export default function CurrentWeather() {
 
   function doApiCall(latitude, longitude) {
     const url = `https://weather-proxy.freecodecamp.rocks/api/current?lat=${latitude}&lon=${longitude}`;
-    axios.get(url).then(getWeatherJSON);
+    axios
+      .get(url)
+      .then(getWeatherJSON)
+      .then(() => setTimeout(() => setLoading(false), 2000));
   }
 
   function getWeatherJSON(response) {
     const JSON = response.data;
+
     setTempCelsius(Math.floor(JSON.main.temp));
     setTempFarenheit(Math.floor((JSON.main.temp * 9) / 5 + 32));
     setIcon(JSON.weather[0].icon);
     setDescription(JSON.weather[0].main);
     setLocation(`${JSON.name}, ${JSON.sys.country}`);
-    setLoading(false);
   }
 
   function changeDegreeType() {
@@ -49,14 +51,18 @@ export default function CurrentWeather() {
 
   return (
     <div className={styles.CurrentWeather}>
-      <h1>Current Weather</h1>
+      <h1 className="projectTitle">Current Weather</h1>
       {loading ? (
-        <PuffLoader color="#6868ac" loading={loading} size={80} />
+        <div className={styles.loaderContainer}>
+          <div className={styles.loader}></div>
+        </div>
       ) : (
         <div className={styles.weather}>
-          <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
-          <button onClick={changeDegreeType}>°{degreeType}</button>
-          <img src={icon} />
+          <div className={styles.temperatureContainer}>
+            <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
+            <button onClick={changeDegreeType}>°{degreeType}</button>
+          </div>
+          <img src={icon} alt="weather icon" />
           <p>{description}</p>
           <p>{location}</p>
         </div>
