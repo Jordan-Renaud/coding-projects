@@ -5,9 +5,7 @@ export default function ProjectCard({ link, title }) {
   return (
     <Link href={link} passHref>
       <a className={styles.ProjectCard}>
-        <div className={styles.crtScreen}>
-          <p className={styles.link}>/{title}</p>
-        </div>
+        <p className={styles.link}>/{title}</p>
       </a>
     </Link>
   );
