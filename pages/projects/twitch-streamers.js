@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../../styles/twitch-streamers.module.scss";
+import styles from "../../styles/projects/twitch-streamers.module.scss";
 
 export default function TwitchStreamers() {
   const [streamerData, setStreamerData] = useState([]);
@@ -32,7 +32,10 @@ export default function TwitchStreamers() {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      return data;
+      const newLogo = await fetch(data.logo)
+        .then(() => data.logo)
+        .catch(() => "/twitch-streamers-images/questionMark.png");
+      return { ...data, logo: newLogo };
     } catch (error) {
       console.error("Error fetching data: ", error);
       setError(error);
@@ -65,15 +68,27 @@ export default function TwitchStreamers() {
 
   return (
     <div className={styles.Twitch}>
-      <h1>Twitch Streamers</h1>
+      <h1 className="projectTitle">Twitch Streamers</h1>
       <div className={styles.buttonContainer}>
-        <button onClick={() => setFilter("All")} value={"All"}>
+        <button
+          className="input-item"
+          onClick={() => setFilter("All")}
+          value={"All"}
+        >
           All
         </button>
-        <button onClick={() => setFilter("Online")} value={"Online"}>
+        <button
+          className="input-item"
+          onClick={() => setFilter("Online")}
+          value={"Online"}
+        >
           Online
         </button>
-        <button onClick={() => setFilter("Offline")} value={"Offline"}>
+        <button
+          className="input-item"
+          onClick={() => setFilter("Offline")}
+          value={"Offline"}
+        >
           Offline
         </button>
       </div>

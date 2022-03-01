@@ -1,0 +1,50 @@
+.Twitch {
+  display: grid;
+  margin: 10px;
+
+  .buttonContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .resultsContainer {
+    padding: 0;
+    border: solid 1px black;
+
+    .streamer {
+      display: grid;
+      grid-template-columns: 1fr 2fr 3fr;
+      width: 100%;
+      border: solid 1px black;
+      min-height: 80px;
+      align-items: center;
+      text-align: center;
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: solid 2px black;
+        margin-left: 5px;
+      }
+
+      a {
+        font-size: 16px;
+      }
+
+      &.online {
+        background-color: rgb(241, 233, 212);
+        color: rgb(8, 32, 2);
+        a {
+          color: rgb(8, 32, 2);
+        }
+      }
+
+      &.offline {
+        //background-color: lightgray;
+      }
+    }
+  }
+}

@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.TicTacToe .SetupOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 20px;
+}
+
+.TicTacToe .SetupOptions .playerType input {
+  accent-color: #f1e9d4;
+  height: 20px;
+  width: 20px;
+}
+
 .TicTacToe .buttonContainer {
   display: -ms-grid;
   display: grid;
@@ -38,6 +53,6 @@
 }
 
 .TicTacToe .board .square.winningSquare {
-  background-color: blue;
+  background-color: #1c3a14;
 }
 /*# sourceMappingURL=tic-tac-toe.module.css.map */

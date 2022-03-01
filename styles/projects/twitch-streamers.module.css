@@ -1,0 +1,55 @@
+.Twitch {
+  display: -ms-grid;
+  display: grid;
+  margin: 10px;
+}
+
+.Twitch .buttonContainer {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.Twitch .resultsContainer {
+  padding: 0;
+  border: solid 1px black;
+}
+
+.Twitch .resultsContainer .streamer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 3fr;
+      grid-template-columns: 1fr 2fr 3fr;
+  width: 100%;
+  border: solid 1px black;
+  min-height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.Twitch .resultsContainer .streamer .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 2px black;
+  margin-left: 5px;
+}
+
+.Twitch .resultsContainer .streamer a {
+  font-size: 16px;
+}
+
+.Twitch .resultsContainer .streamer.online {
+  background-color: #f1e9d4;
+  color: #082002;
+}
+
+.Twitch .resultsContainer .streamer.online a {
+  color: #082002;
+}
+/*# sourceMappingURL=twitch-streamers.module.css.map */

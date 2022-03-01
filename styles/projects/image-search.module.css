@@ -8,6 +8,17 @@
   gap: 10px;
 }
 
+.ImageSearch .searchContainer {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  margin: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+}
+
 .ImageSearch .buttonContainer {
   display: -ms-grid;
   display: grid;
@@ -15,6 +26,7 @@
       justify-content: space-around;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .ImageSearch .photos {
