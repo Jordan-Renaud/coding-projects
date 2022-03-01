@@ -22,3 +22,17 @@
     line-height: 20px;
   }
 }
+
+//tablet
+@media only screen and (min-width: 768px) {
+  .ProjectCard {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+
+    .link {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}

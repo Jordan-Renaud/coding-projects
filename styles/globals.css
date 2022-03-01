@@ -56,4 +56,17 @@ body {
   font-weight: normal;
   text-align: center;
 }
+
+@media only screen and (min-width: 768px) {
+  .link {
+    font-size: 2rem;
+  }
+  .link:hover {
+    cursor: pointer;
+  }
+  .toolbar {
+    margin: 10px;
+    font-size: 2rem;
+  }
+}
 /*# sourceMappingURL=globals.css.map */

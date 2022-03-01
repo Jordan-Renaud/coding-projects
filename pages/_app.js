@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
           href="https://jordan-renaud.netlify.app/"
           target="_blank"
           className="link"
+          rel="noreferrer"
         >
           Jordan Renaud
         </a>

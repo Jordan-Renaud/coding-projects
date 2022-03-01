@@ -23,4 +23,13 @@
       justify-content: space-around;
   row-gap: 30px;
 }
+
+@media only screen and (min-width: 768px) {
+  .Home {
+    margin: 30px 20px 0 20px;
+  }
+  .Home .subheading {
+    font-size: 2rem;
+  }
+}
 /*# sourceMappingURL=Home.module.css.map */

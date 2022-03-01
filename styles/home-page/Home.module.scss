@@ -19,3 +19,14 @@
     row-gap: 30px;
   }
 }
+
+//tablet
+@media only screen and (min-width: 768px) {
+  .Home {
+    margin: 30px 20px 0 20px;
+
+    .subheading {
+      font-size: 2rem;
+    }
+  }
+}
