@@ -46,3 +46,17 @@
     }
   }
 }
+
+//laptop
+@media only screen and (min-width: 1440px) {
+  .SimonGame {
+    .gameInfo {
+      font-size: 16px;
+    }
+
+    .gameBoard {
+      width: calc(60vw - 40px);
+      height: 75vh;
+    }
+  }
+}
