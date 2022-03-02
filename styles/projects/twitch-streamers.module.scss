@@ -41,10 +41,44 @@
           color: rgb(8, 32, 2);
         }
       }
+    }
+  }
+}
 
-      &.offline {
-        //background-color: lightgray;
+//tablet
+@media only screen and (min-width: 768px) {
+  .Twitch {
+    display: grid;
+    margin: 30px;
+
+    .buttonContainer {
+      margin: 0 auto;
+      width: 60%;
+    }
+
+    .resultsContainer {
+      .streamer {
+        grid-template-columns: 1fr 1fr 5fr;
+
+        .logo {
+          width: 50px;
+          height: 50px;
+          margin-left: 20px;
+        }
       }
+    }
+  }
+}
+
+//laptop
+@media only screen and (min-width: 1440px) {
+  .Twitch {
+    .buttonContainer {
+      width: 30%;
+    }
+
+    .resultsContainer {
+      margin-top: 50px;
     }
   }
 }
