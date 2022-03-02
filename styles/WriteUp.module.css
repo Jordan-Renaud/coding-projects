@@ -64,6 +64,9 @@
   .WriteUp {
     margin: 50px 100px;
   }
+  .WriteUp .content {
+    line-height: 30px;
+  }
   .WriteUp .content .userStories {
     margin-left: 30px;
   }
