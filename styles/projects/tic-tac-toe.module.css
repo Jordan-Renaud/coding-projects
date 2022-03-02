@@ -55,4 +55,30 @@
 .TicTacToe .board .square.winningSquare {
   background-color: #1c3a14;
 }
+
+@media only screen and (min-width: 768px) {
+  .TicTacToe .SetupOptions {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .TicTacToe .board {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .TicTacToe .SetupOptions {
+    margin: 0 auto;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 40vw;
+  }
+  .TicTacToe .board {
+    width: 25vw;
+    height: 25vw;
+  }
+}
 /*# sourceMappingURL=tic-tac-toe.module.css.map */

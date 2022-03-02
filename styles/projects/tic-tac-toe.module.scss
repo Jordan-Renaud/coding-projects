@@ -46,3 +46,33 @@
     }
   }
 }
+
+//tablet
+@media only screen and (min-width: 768px) {
+  .TicTacToe {
+    .SetupOptions {
+      justify-content: space-evenly;
+    }
+
+    .board {
+      width: 50vw;
+      height: 50vw;
+    }
+  }
+}
+
+//laptop
+@media only screen and (min-width: 1440px) {
+  .TicTacToe {
+    .SetupOptions {
+      margin: 0 auto;
+      justify-content: space-evenly;
+      width: 40vw;
+    }
+
+    .board {
+      width: 25vw;
+      height: 25vw;
+    }
+  }
+}
