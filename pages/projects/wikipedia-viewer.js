@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/wikipedia-viewer.module.scss";
+import styles from "../../styles/projects/wikipedia-viewer.module.scss";
 import axios from "axios";
 
 export default function WikipediaViewer() {

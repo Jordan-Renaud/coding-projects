@@ -18,7 +18,7 @@
   font-size: 16px;
   display: -ms-grid;
   display: grid;
-  row-gap: 30px;
+  row-gap: 20px;
 }
 
 .WriteUp .content .userStories {
