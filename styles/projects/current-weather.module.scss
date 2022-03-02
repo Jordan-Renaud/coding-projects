@@ -1,25 +1,45 @@
 .CurrentWeather {
+  .content {
+    max-height: 50vh;
+  }
+
   .weather {
-    height: 40vh;
     display: grid;
+    height: 30vh;
     justify-items: center;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
 
     .temperatureContainer {
       display: grid;
-      width: 100px;
+      width: 40vw;
+      gap: 10px;
       grid-template-columns: 1fr 1fr;
-      justify-items: center;
       align-items: center;
-      * {
+
+      .temperature {
+        justify-self: end;
+        font-size: 24px;
+      }
+      button {
         font-size: 24px;
         width: 40px;
-        height: 40px;
+        padding: 0;
       }
+    }
+
+    .icon {
+      justify-self: center;
+    }
+
+    .description {
+      font-size: 24px;
     }
   }
 
   .loaderContainer {
-    height: 40vh;
+    height: 30vh;
   }
 
   //loader

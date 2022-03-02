@@ -52,21 +52,27 @@ export default function CurrentWeather() {
   return (
     <div className={styles.CurrentWeather}>
       <h1 className="projectTitle">Current Weather</h1>
-      {loading ? (
-        <div className={styles.loaderContainer}>
-          <div className={styles.loader}></div>
-        </div>
-      ) : (
-        <div className={styles.weather}>
-          <div className={styles.temperatureContainer}>
-            <p>{degreeType === "C" ? tempCelsius : tempFarenheit}</p>
-            <button onClick={changeDegreeType}>°{degreeType}</button>
+      <div className={styles.content}>
+        {loading ? (
+          <div className={styles.loaderContainer}>
+            <div className={styles.loader}></div>
           </div>
-          <img src={icon} alt="weather icon" />
-          <p>{description}</p>
-          <p>{location}</p>
-        </div>
-      )}
+        ) : (
+          <div className={styles.weather}>
+            <p>{location}</p>
+            <div className={styles.temperatureContainer}>
+              <p className={styles.temperature}>
+                {degreeType === "C" ? tempCelsius : tempFarenheit}
+              </p>
+              <button className="input-item" onClick={changeDegreeType}>
+                °{degreeType}
+              </button>
+            </div>
+            <img className={styles.icon} src={icon} alt="weather icon" />
+            <p className={styles.description}>{description}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
