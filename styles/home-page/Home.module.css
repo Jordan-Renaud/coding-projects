@@ -39,4 +39,19 @@
         grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+@media only screen and (min-width: 1920px) {
+  .Home {
+    margin: 30px 500px;
+  }
+  .Home .projectContainer {
+    margin-top: 100px;
+    gap: 100px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
 /*# sourceMappingURL=Home.module.css.map */
