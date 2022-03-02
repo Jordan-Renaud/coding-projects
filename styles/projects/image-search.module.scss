@@ -53,3 +53,16 @@
     }
   }
 }
+
+//big screen
+@media only screen and (min-width: 1920px) {
+  .ImageSearch {
+    .photos {
+      grid-template-columns: repeat(6, 1fr);
+      img {
+        width: 12vw;
+        height: 12vw;
+      }
+    }
+  }
+}

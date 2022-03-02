@@ -64,4 +64,11 @@
     height: 75vh;
   }
 }
+
+@media only screen and (min-width: 1920px) {
+  .SimonGame .gameBoard {
+    width: calc(40vw - 40px);
+    height: 50vh;
+  }
+}
 /*# sourceMappingURL=simon-game.module.css.map */

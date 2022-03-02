@@ -62,4 +62,15 @@
     margin: 30px 0;
   }
 }
+
+@media only screen and (min-width: 1920px) {
+  .ImageSearch .photos {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+  .ImageSearch .photos img {
+    width: 12vw;
+    height: 12vw;
+  }
+}
 /*# sourceMappingURL=image-search.module.css.map */
