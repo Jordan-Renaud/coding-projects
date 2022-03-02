@@ -21,6 +21,10 @@
   row-gap: 20px;
 }
 
+.WriteUp .content a {
+  font-size: 16px;
+}
+
 .WriteUp .content .userStories {
   list-style: none;
   margin: 0;

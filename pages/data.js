@@ -28,11 +28,24 @@ export const writeUpContent = [
     about: (
       <p>
         This is a classic beginner problem that I have tackled a couple of times
-        before,
-        <a href="https://weather-app-jrenaud.netlify.app/">
+        before,{" "}
+        <a
+          href="https://weather-app-jrenaud.netlify.app/"
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+        >
           once in vanilla JavaScript
         </a>{" "}
-        and <a href="https://weather-app-jrenaud.netlify.app/">once in React</a>
+        and{" "}
+        <a
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+          href="https://weather-app-jrenaud.netlify.app/"
+        >
+          once in React
+        </a>
         . The goal is to get the current weather for the location of the user.
       </p>
     ),
@@ -98,10 +111,7 @@ export const writeUpContent = [
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-an-image-search-abstraction-layer",
     about:
       "The original project brief on FreeCodeCamp was somewhat vague when describing the purpose of said project. Due to this, I pivoted the project to instead look at the Unsplash API. The new brief was to use the API to search for images with a query provided by the user. Below are updated user stories relating to the new project.",
-    userStories: [
-      "You can get images relating to a given search string.",
-      "You can get a list of the most recently submitted search strings.",
-    ],
+    userStories: ["You can get images relating to a given search string."],
     whatHappened:
       "When I started the Image Search project, I looked at the Unsplash API documentation. This specific API uses a key that prompted me to learn how to store variables in an ENV file. As well as this, I learnt how to use the SDK surrounding Unsplash. I like how this looks in the code, makes it look simple and clean.",
     keywords: ["createApi from unsplash-js", "useState"],
@@ -119,7 +129,6 @@ export const writeUpContent = [
     userStories: [
       "I can play a game of Tic Tac Toe with the computer.",
       "My game will reset as soon as it's over so I can play again.",
-      "I can choose whether I want to play as X or O.",
     ],
     whatHappened:
       "When I started working on this project, I only vaguely knew of the existence of useReducer. So, I began creating a convoluted web of useEffects, and useStates. It got to the point of being buried so deep in functions, I had to walk away for a few days before tackling it again.",
@@ -133,8 +142,21 @@ export const writeUpContent = [
     pagePath: "simon-game",
     title: "Build a Simon Game",
     link: "https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-simon-game",
-    about:
-      "The task set for this project is to create a repeating light memory game. It is based on the cult classic game, Simon(LINK HEREERERER).",
+    about: (
+      <p>
+        The task set for this project is to create a repeating light memory
+        game. It is based on the cult classic game,{" "}
+        <a
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+          href="https://en.wikipedia.org/wiki/Simon_(game)"
+        >
+          Simon
+        </a>
+        .
+      </p>
+    ),
     userStories: [
       "I am presented with a random series of button presses.",
       "Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.",
