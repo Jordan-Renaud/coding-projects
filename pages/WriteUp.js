@@ -1,3 +1,4 @@
+import Tags from "../components/Tags";
 import styles from "../styles/WriteUp.module.scss";
 
 export default function WriteUp({ content }) {
@@ -5,15 +6,16 @@ export default function WriteUp({ content }) {
     <div className={styles.WriteUp}>
       <h2 className={styles.title}>{content.title}</h2>
       <div className={styles.linkContainer}>
-        <a className="link" href={content.link} target="_blank">
+        <a
+          className="link"
+          href={content.link}
+          target="_blank"
+          rel="noreferrer"
+        >
           freeCodeCamp link
         </a>
       </div>
-      <div>
-        {content.keywords.map((keyword) => (
-          <span key={keyword}>{keyword}</span>
-        ))}
-      </div>
+      <Tags names={content.keywords} />
       <article className={styles.content}>
         {content.about}
         <ul className={styles.userStories}>

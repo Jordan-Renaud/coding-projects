@@ -1,0 +1,18 @@
+.Tags {
+  margin: 20px 10px;
+  display: -ms-grid;
+  display: grid;
+  gap: 5px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.Tags .individual {
+  border: solid 1px #f1e9d4;
+  border-radius: 10px;
+  font-size: 12px;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+/*# sourceMappingURL=Tags.module.css.map */
