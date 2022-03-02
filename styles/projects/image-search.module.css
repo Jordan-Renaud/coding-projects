@@ -42,4 +42,24 @@
      object-fit: cover;
   border-radius: 10px;
 }
+
+@media only screen and (min-width: 768px) {
+  .ImageSearch .photos {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+  .ImageSearch .photos img {
+    width: 25vw;
+    height: 25vw;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .ImageSearch .photos {
+    margin: 30px 0;
+  }
+}
 /*# sourceMappingURL=image-search.module.css.map */
