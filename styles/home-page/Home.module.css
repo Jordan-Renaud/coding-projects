@@ -32,4 +32,11 @@
     font-size: 2rem;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .Home .projectContainer {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 /*# sourceMappingURL=Home.module.css.map */
