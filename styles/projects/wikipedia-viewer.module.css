@@ -1,0 +1,72 @@
+.WikipediaViewer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.WikipediaViewer .inputSection {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  justify-items: center;
+}
+
+.WikipediaViewer .inputSection .searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.WikipediaViewer .results {
+  display: -ms-grid;
+  display: grid;
+  width: 80%;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.WikipediaViewer .results a {
+  color: #082002;
+  padding: 1rem;
+  text-decoration: none;
+  background-color: #f1e9d4;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.WikipediaViewer .results a .linkTitle {
+  font-size: 1.5rem;
+}
+
+.WikipediaViewer .results a:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+@media only screen and (min-width: 768px) {
+  .WikipediaViewer .results {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/*# sourceMappingURL=wikipedia-viewer.module.css.map */
