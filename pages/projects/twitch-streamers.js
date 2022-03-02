@@ -68,7 +68,7 @@ export default function TwitchStreamers() {
 
   return (
     <div className={styles.Twitch}>
-      <h1 className="projectTitle">Twitch Streamers</h1>
+      <h1 className="projectTitle">/twitch-streamers</h1>
       <div className={styles.buttonContainer}>
         <button
           className="input-item"

@@ -43,7 +43,7 @@ export default function ImageSearch() {
 
   return (
     <div className={styles.ImageSearch}>
-      <h1 className="projectTitle">Image Search</h1>
+      <h1 className="projectTitle">/image-search</h1>
       <form className={styles.searchContainer}>
         <input
           className="input-item"

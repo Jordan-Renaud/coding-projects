@@ -51,7 +51,7 @@ export default function CurrentWeather() {
 
   return (
     <div className={styles.CurrentWeather}>
-      <h1 className="projectTitle">Current Weather</h1>
+      <h1 className="projectTitle">/current-weather</h1>
       <div className={styles.content}>
         {loading ? (
           <div className={styles.loaderContainer}>

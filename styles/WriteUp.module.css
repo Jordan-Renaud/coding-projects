@@ -35,4 +35,33 @@
   content: ">";
   padding-right: 5px;
 }
+
+@media only screen and (min-width: 768px) {
+  .WriteUp {
+    margin: 50px 30px;
+  }
+  .WriteUp .title {
+    font-size: 48px;
+    margin: 20px 0;
+  }
+  .WriteUp .linkContainer {
+    margin: 30px 0;
+  }
+  .WriteUp .content {
+    font-size: 16px;
+    row-gap: 30px;
+  }
+  .WriteUp .content .userStories li {
+    padding: 15px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .WriteUp {
+    margin: 50px 100px;
+  }
+  .WriteUp .content .userStories {
+    margin-left: 30px;
+  }
+}
 /*# sourceMappingURL=WriteUp.module.css.map */

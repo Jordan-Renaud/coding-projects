@@ -50,6 +50,10 @@ body {
   padding: 0 10px;
 }
 
+.input-item:hover {
+  cursor: pointer;
+}
+
 .projectTitle {
   margin: 50px;
   font-size: 40px;
@@ -67,6 +71,22 @@ body {
   .toolbar {
     margin: 10px;
     font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .toolbar {
+    margin: 10px;
+    font-size: 1.3rem;
+  }
+  .toolbar .link {
+    font-size: 1.3rem;
+  }
+  .toolbar .link:hover {
+    cursor: pointer;
+  }
+  footer .link {
+    font-size: 1.3rem;
   }
 }
 /*# sourceMappingURL=globals.css.map */

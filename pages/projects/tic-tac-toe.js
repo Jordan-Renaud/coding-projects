@@ -145,7 +145,7 @@ export default function TicTacToe() {
 
   return (
     <div className={styles.TicTacToe}>
-      <h1 className="projectTitle">Tic Tac Toe</h1>
+      <h1 className="projectTitle">/tic-tac-toe</h1>
       <SetupOptions
         setNumberOfPlayers={(number) =>
           dispatch({ type: "changeGameMode", numberOfPlayers: number })

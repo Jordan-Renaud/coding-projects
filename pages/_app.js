@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
           className="link"
           rel="noreferrer"
         >
-          Jordan Renaud
+          jordan-renaud
         </a>
         <span>/</span>
         <Link href="/">
