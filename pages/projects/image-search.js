@@ -1,11 +1,5 @@
-import { createApi } from "unsplash-js";
 import { useState } from "react";
 import styles from "../../styles/projects/image-search.module.scss";
-
-//TODO: make not public
-const unsplash = createApi({
-  accessKey: process.env.NEXT_PUBLIC_API_KEY,
-});
 
 const topics = ["cats", "dogs", "mice"];
 
@@ -14,20 +8,13 @@ export default function ImageSearch() {
   const [searchBarTerm, setSearchBarTerm] = useState("");
 
   function doApiCall(searchTerm) {
-    unsplash.search
-      .getPhotos({
-        query: searchTerm,
-        page: 1,
-        perPage: 12,
-        orderBy: "relevant",
-      })
+    fetch("/api/image-search?searchTerm=" + encodeURIComponent(searchTerm))
+      .then((res) => res.json())
       .then((results) => {
-        console.log(results);
-        if (results.errors) {
-          console.log("error occurred: ", results.errors[0]);
-        } else {
-          setPhotos(results.response.results);
-        }
+        setPhotos(results.results);
+      })
+      .catch((e) => {
+        console.log("error occurred: ", e);
       });
   }
 
