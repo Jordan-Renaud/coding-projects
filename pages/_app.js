@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import WriteUp from "./WriteUp";
-import { writeUpContent } from "./data";
+import WriteUp from "../components/WriteUp";
+import { writeUpContent } from "../data";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {

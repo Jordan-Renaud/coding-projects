@@ -1,4 +1,4 @@
-import Tags from "../components/Tags";
+import Tags from "./Tags";
 import styles from "../styles/WriteUp.module.scss";
 
 export default function WriteUp({ content }) {

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Title from "../components/home-page/Title";
 import ProjectCard from "../components/home-page/ProjectCard";
-import { projects, titleWords } from "./data";
+import { projects, titleWords } from "../data";
 import styles from "../styles/home-page/Home.module.scss";
 
 export default function Home() {
