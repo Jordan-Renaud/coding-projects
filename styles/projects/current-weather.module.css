@@ -3,9 +3,11 @@
 }
 
 .CurrentWeather .weather {
+  margin: 0 auto;
   display: -ms-grid;
   display: grid;
   height: 30vh;
+  width: 80vw;
   justify-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -15,6 +17,8 @@
           align-items: center;
   -ms-grid-rows: 2fr 1fr 1fr 1fr;
       grid-template-rows: 2fr 1fr 1fr 1fr;
+  border: solid 1px #f1e9d3;
+  border-radius: 10px;
 }
 
 .CurrentWeather .weather .temperatureContainer {
@@ -120,6 +124,28 @@
     -webkit-box-shadow: 0 -2em;
             box-shadow: 0 -2em;
     height: 5em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .CurrentWeather .weather {
+    width: 50vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .CurrentWeather .weather {
+    width: 30vw;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .CurrentWeather .weather {
+    width: 20vw;
+    height: 20vh;
+  }
+  .CurrentWeather .loaderContainer {
+    height: 20vh;
   }
 }
 /*# sourceMappingURL=current-weather.module.css.map */
