@@ -17,7 +17,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin: 5px;
-  font-size: 16px;
+  font-size: 12px;
+}
+
+.toolbar a {
+  font-size: 12px;
 }
 
 .link {

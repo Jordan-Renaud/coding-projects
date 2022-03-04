@@ -14,7 +14,10 @@ body {
 .toolbar {
   display: flex;
   margin: 5px;
-  font-size: 16px;
+  font-size: 12px;
+  a {
+    font-size: 12px;
+  }
 }
 
 .link {
