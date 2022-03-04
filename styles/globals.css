@@ -74,7 +74,10 @@ body {
   }
   .toolbar {
     margin: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .toolbar a {
+    font-size: 1.5rem;
   }
 }
 
