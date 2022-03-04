@@ -22,6 +22,14 @@ function MyApp({ Component, pageProps }) {
         <Link href="/">
           <a className="link">coding-projects</a>
         </Link>
+        {router.pathname !== "/" && (
+          <>
+            <span>/</span>
+            <Link href={router.pathname}>
+              <a className="link">{router.pathname.substring(10)}</a>
+            </Link>
+          </>
+        )}
       </header>
       <Component {...pageProps} />
       {writeUpContent.map((content) => {
