@@ -55,7 +55,7 @@ export const writeUpContent = [
       "I can push a button to toggle between Fahrenheit and Celsius.",
     ],
     whatHappened:
-      "Starting this project, I followed a similar problem breakdown as I had previously. I got the location using the Geolocation API, followed by using Axios to fetch weather data from an API and receive a JSON response. Since I had done this before, I wanted to increase the complexity by adding a randomised loading spinner for each page reload.",
+      "Starting this project, I followed a similar problem breakdown as I had previously. I got the location using the Geolocation API, followed by using Axios to fetch weather data from an API and receive a JSON response.",
     keywords: [
       "axios",
       "useState",
@@ -63,8 +63,8 @@ export const writeUpContent = [
       "Geolocation API",
       "react-spinner",
     ],
-    //TODO: add spinner + error handling then do challenges
-    challenges: "what are some challenges I faced",
+    challenges:
+      "There weren't too many challenges when making the project. However, I originally planned to add a randomised spinner on page load. After fighting it for a couple of days and consulting with other programmers, I learned when to cut my losses. While potentially I could get it working, it was not what I wanted to focus on. As well as the library I was using turned out not to be compatible with Next.js as it so claimed.",
     future:
       "The good thing about this project was that I already had the know-how to get it working pretty quickly. Looking into the future for projects like this, I want to focus on the following goals: optimising the code and paying attention to best practices.",
   },
