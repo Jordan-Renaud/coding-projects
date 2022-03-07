@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import styles from "../../styles/projects/twitch-streamers.module.scss";
+import styles from "src/styles/projects/twitch-streamers.module.scss";
 
 export default function TwitchStreamers() {
   const [streamerData, setStreamerData] = useState([]);
@@ -68,7 +69,7 @@ export default function TwitchStreamers() {
 
   return (
     <div className={styles.Twitch}>
-      <h1 className="projectTitle">/twitch-streamers</h1>
+      <h1 className="projectTitle">Twitch Streamers</h1>
       <div className={styles.buttonContainer}>
         <button
           className="input-item"
@@ -100,10 +101,13 @@ export default function TwitchStreamers() {
             }`}
             key={index}
           >
-            <img
+            <Image
               className={styles.logo}
               src={streamer.logo}
               alt="streamer logo"
+              layout="fixed"
+              width={40}
+              height={40}
             />
             <a
               className="link"

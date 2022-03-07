@@ -1,9 +1,9 @@
 import { useReducer, useEffect } from "react";
 import { shuffle } from "lodash";
-import SetupOptions from "../../components/projects/tic-tac-toe/SetupOptions";
-import Leaderboard from "../../components/projects/tic-tac-toe/Leaderboard";
-import Board from "../../components/projects/tic-tac-toe/Board";
-import styles from "../../styles/projects/tic-tac-toe.module.scss";
+import SetupOptions from "src/components/projects/tic-tac-toe/SetupOptions";
+import Leaderboard from "src/components/projects/tic-tac-toe/Leaderboard";
+import Board from "src/components/projects/tic-tac-toe/Board";
+import styles from "src/styles/projects/tic-tac-toe.module.scss";
 
 const initialState = {
   player1: "X",

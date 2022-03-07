@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "../../styles/projects/current-weather.module.scss";
+import styles from "src/styles/projects/current-weather.module.scss";
 
 export default function CurrentWeather() {
   //loader variables

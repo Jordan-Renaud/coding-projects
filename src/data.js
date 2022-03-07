@@ -1,12 +1,21 @@
 export const titleWords = ["fun", "take home", "learning", "mini"];
 
 export const projects = [
-  { title: "current-weather", link: "/projects/current-weather" },
-  { title: "wikipedia-viewer", link: "/projects/wikipedia-viewer" },
-  { title: "twitch-streamers", link: "/projects/twitch-streamers" },
-  { title: "image-search", link: "/projects/image-search" },
-  { title: "tic-tac-toe", link: "/projects/tic-tac-toe" },
-  { title: "simon-game", link: "/projects/simon-game" },
+  {
+    title: "current-weather",
+    link: "/coding-projects/current-weather",
+  },
+  {
+    title: "wikipedia-viewer",
+    link: "/coding-projects/wikipedia-viewer",
+  },
+  {
+    title: "twitch-streamers",
+    link: "/coding-projects/twitch-streamers",
+  },
+  { title: "image-search", link: "/coding-projects/image-search" },
+  { title: "tic-tac-toe", link: "/coding-projects/tic-tac-toe" },
+  { title: "simon-game", link: "/coding-projects/simon-game" },
 ];
 
 export const TwitchStreamerData = [

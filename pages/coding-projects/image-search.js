@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/projects/image-search.module.scss";
+import styles from "src/styles/projects/image-search.module.scss";
 
 const topics = ["cats", "dogs", "mice"];
 

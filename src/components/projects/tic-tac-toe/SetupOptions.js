@@ -1,4 +1,4 @@
-import styles from "../../../styles/projects/tic-tac-toe.module.scss";
+import styles from "src/styles/projects/tic-tac-toe.module.scss";
 
 export default function SetupOptions({ setNumberOfPlayers, gameMode }) {
   return (

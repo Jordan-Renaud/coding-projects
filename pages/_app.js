@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import WriteUp from "../components/WriteUp";
-import { writeUpContent } from "../data";
-import "../styles/globals.scss";
+import WriteUp from "../src/components/WriteUp";
+import { writeUpContent } from "src/data";
+import "src/styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -10,35 +10,40 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <header className="toolbar">
-        <a
-          href="https://jordan-renaud.netlify.app/"
-          target="_blank"
-          className="link"
-          rel="noreferrer"
-        >
-          jordan-renaud
-        </a>
-        <span>/</span>
-        <Link href="/">
-          <a className="link">coding-projects</a>
-        </Link>
-        {router.pathname !== "/" && (
-          <>
-            <span>/</span>
-            <Link href={router.pathname}>
-              <a className="link">{router.pathname.substring(10)}</a>
-            </Link>
-          </>
-        )}
+        {router.pathname
+          .split("/")
+          .reduce((previous, currentPath) => {
+            if (previous.length === 0)
+              return [{ name: "jordan-renaud", link: "/" }];
+
+            const lastLink = previous[previous.length - 1].link;
+            return [
+              ...previous,
+              {
+                name: currentPath,
+                link: (lastLink + "/" + currentPath).replace("//", "/"),
+              },
+            ];
+          }, [])
+          .map(({ name, link }) => {
+            return (
+              <>
+                <Link href={link} key={link}>
+                  <a className="link">{name}</a>
+                </Link>
+                <span>/</span>
+              </>
+            );
+          })}
       </header>
       <Component {...pageProps} />
       {writeUpContent.map((content) => {
-        if (`/projects/${content.pagePath}` === router.pathname) {
+        if (`/coding-projects/${content.pagePath}` === router.pathname) {
           return <WriteUp key={content.title} content={content} />;
         }
       })}
       <footer>
-        {router.pathname !== "/" && (
+        {router.pathname !== "/coding-projects" && (
           <Link href="/">
             <a className="link">Back to home</a>
           </Link>
