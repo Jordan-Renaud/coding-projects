@@ -1,6 +1,6 @@
 import Typist from "react-typist";
 import { useEffect, useState } from "react";
-import styles from "../../styles/home-page/Title.module.scss";
+import styles from "../../styles/home-page-coding-projects/Title.module.scss";
 
 export default function Title({ texts }) {
   const [currentTextCounter, setCurrentTextCounter] = useState(0);

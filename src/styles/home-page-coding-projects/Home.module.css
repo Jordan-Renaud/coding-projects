@@ -1,0 +1,57 @@
+.Home {
+  margin: 30px 10px 0 10px;
+}
+
+.Home .content {
+  display: -ms-grid;
+  display: grid;
+}
+
+.Home .subheading {
+  font-weight: normal;
+  text-align: right;
+}
+
+.Home .projectContainer {
+  margin: 30px 0;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  row-gap: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Home {
+    margin: 30px 20px 0 20px;
+  }
+  .Home .subheading {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .Home .projectContainer {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .Home {
+    margin: 30px 500px;
+  }
+  .Home .projectContainer {
+    margin-top: 100px;
+    gap: 100px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=Home.module.css.map */

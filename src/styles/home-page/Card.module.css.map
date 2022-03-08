@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,IAAI;CACd",
     "sources": [
-        "Home.module.scss"
+        "Card.module.scss"
     ],
     "names": [],
-    "file": "Home.module.css"
+    "file": "Card.module.css"
 }

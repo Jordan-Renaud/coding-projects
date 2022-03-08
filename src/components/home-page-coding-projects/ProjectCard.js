@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../../styles/home-page/ProjectCard.module.scss";
+import styles from "../../styles/home-page-coding-projects/ProjectCard.module.scss";
 
 export default function ProjectCard({ link, title }) {
   return (

@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Title from "src/components/home-page/Title";
-import ProjectCard from "src/components/home-page/ProjectCard";
+import Title from "src/components/home-page-coding-projects/Title";
+import ProjectCard from "src/components/home-page-coding-projects/ProjectCard";
 import { projects, titleWords } from "src/data";
-import styles from "src/styles/home-page/Home.module.scss";
+import styles from "src/styles/home-page-coding-projects/Home.module.scss";
 
 export default function Home() {
   return (
