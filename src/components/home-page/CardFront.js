@@ -3,7 +3,7 @@ import styles from "src/styles/home-page/CardFront.module.scss";
 
 export default function CardFront({ cardContent }) {
   return (
-    <div className={styles.front}>
+    <div className={styles.CardFront}>
       <h2>{cardContent.title}</h2>
       <a href={cardContent.link}>
         <Image

@@ -1,0 +1,14 @@
+.CardBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  z-index: 2;
+
+  &.visible {
+    transform: translateX(100%) rotateY(-180deg);
+  }
+}
