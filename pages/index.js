@@ -35,9 +35,12 @@ const cards = [
 export default function Home() {
   return (
     <div className={styles.Home}>
-      {cards.map((cardContent, index) => (
-        <Card key={index} cardContent={cardContent} />
-      ))}
+      <h1 className="projectTitle">Jordan Renaud Developer</h1>
+      <div className={styles.cardContainer}>
+        {cards.map((cardContent, index) => (
+          <Card key={index} cardContent={cardContent} />
+        ))}
+      </div>
     </div>
   );
 }

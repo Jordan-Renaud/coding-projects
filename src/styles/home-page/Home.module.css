@@ -1,5 +1,16 @@
 .Home {
-  display: -ms-grid;
-  display: grid;
+  background-color: #f1e9d4;
+  color: #082002;
+}
+
+.Home .cardContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 3rem;
 }
 /*# sourceMappingURL=Home.module.css.map */

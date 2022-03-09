@@ -1,11 +1,11 @@
 .Card {
   position: relative;
-  transition-duration: 0.6s;
+  transition-duration: 1s;
   transition-timing-function: ease-in-out;
   transform-style: preserve-3d;
   width: 400px;
   height: 575px;
-  border: solid 1px white;
+  border: solid 2px rgb(8, 32, 2);
   border-radius: 10px;
   backface-visibility: hidden;
 
