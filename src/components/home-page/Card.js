@@ -15,8 +15,8 @@ export default function Card({ cardContent }) {
       }`}
       onClick={() => (isFlipped ? setIsFlipped(false) : setIsFlipped(true))}
     >
-      <CardBack cardContent={backOfCard} />
       <CardFront cardContent={frontOfCard} />
+      <CardBack cardContent={backOfCard} />
     </div>
   );
 }

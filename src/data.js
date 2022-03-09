@@ -194,6 +194,10 @@ import questionMark from "../public/twitch-streamers-images/questionMark.png";
 export const cardData = [
   {
     frontOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+    backOfCard: {
       title: "Weather App",
       image: questionMark,
       link: "https://festive-carson-9c68d7.netlify.app",
@@ -206,13 +210,13 @@ export const cardData = [
       ],
       alt: "A screen shot of the website described above.",
     },
-    backOfCard: {
-      image: questionMark,
-      alt: "this is the back of the card",
-    },
   },
   {
     frontOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+    backOfCard: {
       title: "Stitch Itch Landing Page",
       image: questionMark,
       link: "https://stitchitch.netlify.app",
@@ -225,13 +229,13 @@ export const cardData = [
       ],
       alt: "A screen shot of the website described above.",
     },
-    backOfCard: {
-      image: questionMark,
-      alt: "this is the back of the card",
-    },
   },
   {
     frontOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+    backOfCard: {
       title: "Component Based Recipes",
       image: questionMark,
       link: "https://easy-recipes-jr.netlify.app",
@@ -244,13 +248,13 @@ export const cardData = [
       ],
       alt: "A screen shot of the website described above.",
     },
-    backOfCard: {
-      image: questionMark,
-      alt: "this is the back of the card",
-    },
   },
   {
     frontOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+    backOfCard: {
       title: "World of Picasso",
       image: questionMark,
       link: "https://world-of-picasso.netlify.app/",
@@ -263,14 +267,14 @@ export const cardData = [
       ],
       alt: "A screen shot of the website described above.",
     },
-    backOfCard: {
-      image: questionMark,
-      alt: "this is the back of the card",
-    },
   },
   //TODO: add this section
   {
     frontOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+    backOfCard: {
       title: "Coding Projects",
       image: questionMark,
       link: "https://stitchitch.netlify.app",
@@ -282,10 +286,6 @@ export const cardData = [
         "Fully responsive, works on mobile, tablet, and desktop sizes.",
       ],
       alt: "A screen shot of the website described above.",
-    },
-    backOfCard: {
-      image: questionMark,
-      alt: "this is the back of the card",
     },
   },
 ];
