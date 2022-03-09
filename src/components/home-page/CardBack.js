@@ -1,15 +1,16 @@
 import Image from "next/image";
-import styles from "src/styles/home-page/CardFront.module.scss";
+import styles from "src/styles/home-page/CardBack.module.scss";
 
 export default function CardBack({ cardContent }) {
   return (
-    <div className={styles.CardFront}>
-      <h2>{cardContent.title}</h2>
+    <article className={styles.CardBack}>
+      <h2 className={styles.projectTitle}>{cardContent.title}</h2>
       <a
         href={cardContent.link}
         onClick={(e) => e.stopPropagation()}
         target="_blank"
         rel="noreferrer"
+        className={styles.pageLink}
       >
         <Image
           src={cardContent.image}
@@ -18,9 +19,11 @@ export default function CardBack({ cardContent }) {
           alt={cardContent.alt}
         />
       </a>
-      {cardContent.content.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
-    </div>
+      <section className={styles.about}>
+        {cardContent.content.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </section>
+    </article>
   );
 }

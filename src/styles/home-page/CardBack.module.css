@@ -6,13 +6,38 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-  z-index: 2;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  border: solid 2px black;
+  border-radius: 10px;
+  background-color: #f1e9d4;
+  color: #082002;
 }
 
-.CardBack.visible {
-  -webkit-transform: translateX(100%) rotateY(-180deg);
-          transform: translateX(100%) rotateY(-180deg);
+.CardBack .projectTitle {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2.5rem;
+  height: 5rem;
+}
+
+.CardBack .pageLink {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.CardBack .about {
+  display: -ms-grid;
+  display: grid;
+  margin: 1rem;
+  gap: 0.5rem;
+}
+
+.CardBack .about p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=CardBack.module.css.map */

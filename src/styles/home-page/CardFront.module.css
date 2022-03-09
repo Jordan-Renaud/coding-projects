@@ -6,9 +6,13 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-  border: solid 2px #082002;
-  border-radius: 10px;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  z-index: 2;
+}
+
+.CardFront.visible {
+  -webkit-transform: translateX(100%) rotateY(-180deg);
+          transform: translateX(100%) rotateY(-180deg);
 }
 /*# sourceMappingURL=CardFront.module.css.map */
