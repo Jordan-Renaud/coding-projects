@@ -185,3 +185,107 @@ export const writeUpContent = [
       "If I were to approach the Simon game project again, there are a few things I would change. The method useReducer() would be highly useful in this instance, it would save me clutter in the code as well as simplify the majority of the functions required to get the game running.",
   },
 ];
+
+//working image/variables --> delete when done
+import questionMark from "../public/twitch-streamers-images/questionMark.png";
+
+//TODO: add more descriptive alts when the images are added.
+
+export const cardData = [
+  {
+    frontOfCard: {
+      title: "Weather App",
+      image: questionMark,
+      link: "https://festive-carson-9c68d7.netlify.app",
+      content: [
+        "Displays the current and future forecast in your location, with searchable regions.",
+        "Languages used: HTML, CSS, JavaScript, React.",
+        "Accessed multiple APIs to retrieve and display weather data.",
+        "Used built in browser APIs, geolocation.",
+        "Created a cohesive design.",
+      ],
+      alt: "A screen shot of the website described above.",
+    },
+    backOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+  },
+  {
+    frontOfCard: {
+      title: "Stitch Itch Landing Page",
+      image: questionMark,
+      link: "https://stitchitch.netlify.app",
+      content: [
+        "Create a responsive landing page.",
+        "Languages used: HTML, CSS, JavaScript.",
+        "Used Figma to create both resources and the design.",
+        "Implemented a light and dark mode.",
+        "Fully responsive, works on mobile, tablet, and desktop sizes.",
+      ],
+      alt: "A screen shot of the website described above.",
+    },
+    backOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+  },
+  {
+    frontOfCard: {
+      title: "Component Based Recipes",
+      image: questionMark,
+      link: "https://easy-recipes-jr.netlify.app",
+      content: [
+        "Create a website that lets you make staple recipes where you choose your ingredients.",
+        "Languages used: HTML, CSS, JavaScript, React.",
+        "Dealt with dynamic data in React.",
+        "Implemented simple state management in React.",
+        "Fully responsive, works on mobile, tablet, and desktop sizes.",
+      ],
+      alt: "A screen shot of the website described above.",
+    },
+    backOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+  },
+  {
+    frontOfCard: {
+      title: "World of Picasso",
+      image: questionMark,
+      link: "https://world-of-picasso.netlify.app/",
+      content: [
+        "Recreate a given design on the web.",
+        "Languages used: HTML, CSS, JavaScript, React, CSS Grid.",
+        "Used non-liner grid based design.",
+        "Added interactive elements with React.",
+        "Fully responsive, works on mobile, tablet, and desktop sizes.",
+      ],
+      alt: "A screen shot of the website described above.",
+    },
+    backOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+  },
+  //TODO: add this section
+  {
+    frontOfCard: {
+      title: "Coding Projects",
+      image: questionMark,
+      link: "https://stitchitch.netlify.app",
+      content: [
+        "Create a responsive landing page.",
+        "Languages used: HTML, CSS, JavaScript.",
+        "Used Figma to create both resources and the design.",
+        "Implemented a light and dark mode.",
+        "Fully responsive, works on mobile, tablet, and desktop sizes.",
+      ],
+      alt: "A screen shot of the website described above.",
+    },
+    backOfCard: {
+      image: questionMark,
+      alt: "this is the back of the card",
+    },
+  },
+];

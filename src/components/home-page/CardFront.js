@@ -5,7 +5,12 @@ export default function CardFront({ cardContent }) {
   return (
     <div className={styles.CardFront}>
       <h2>{cardContent.title}</h2>
-      <a href={cardContent.link}>
+      <a
+        href={cardContent.link}
+        onClick={(e) => e.stopPropagation()}
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image
           src={cardContent.image}
           width={200}
