@@ -1,0 +1,29 @@
+.LinkTile {
+  width: 5rem;
+  height: 5rem;
+}
+
+.LinkTile svg:hover {
+  fill: #f1e9d4;
+}
+
+.LinkTile .fa-instagram-square:hover {
+  color: #b03489;
+}
+
+.LinkTile .fa-twitter-square:hover {
+  color: #1c9cea;
+}
+
+.LinkTile .fa-linkedin:hover {
+  color: #0a66c2;
+}
+
+.LinkTile .fa-github-square:hover {
+  color: #24292f;
+}
+
+#Facebook:hover svg {
+  fill: #4064ac;
+}
+/*# sourceMappingURL=LinkTile.module.css.map */

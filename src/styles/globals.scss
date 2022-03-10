@@ -106,3 +106,10 @@ body {
     transform: translate(-50%, 0);
   }
 }
+
+.link-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 15rem;
+}

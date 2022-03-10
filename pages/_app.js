@@ -1,7 +1,8 @@
 import Link from "next/link";
+import LinkTile from "src/components/home-page/LinkTile";
 import { useRouter } from "next/router";
 import WriteUp from "../src/components/WriteUp";
-import { writeUpContent } from "src/data";
+import { writeUpContent, icons } from "src/data";
 import "src/styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
@@ -43,6 +44,16 @@ function MyApp({ Component, pageProps }) {
         }
       })}
       <footer>
+        <div className="link-container">
+          {icons.map((icon) => (
+            <LinkTile
+              key={icon.title}
+              iconLink={icon.link}
+              icon={icon.icon}
+              iconTitle={icon.title}
+            />
+          ))}
+        </div>
         {router.pathname !== "/coding-projects" && (
           <Link href="/">
             <a className="link">Back to home</a>
