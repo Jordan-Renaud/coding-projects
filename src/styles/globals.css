@@ -106,4 +106,15 @@ body {
             transform: translate(-50%, 0);
   }
 }
+
+.link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  margin-top: 15rem;
+}
 /*# sourceMappingURL=globals.css.map */

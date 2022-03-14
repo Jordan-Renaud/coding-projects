@@ -8,8 +8,6 @@ export default function CardBack({ cardContent }) {
       <a
         href={cardContent.link}
         onClick={(e) => e.stopPropagation()}
-        target="_blank"
-        rel="noreferrer"
         className={styles.pageLink}
       >
         <Image

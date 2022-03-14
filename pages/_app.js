@@ -44,20 +44,17 @@ function MyApp({ Component, pageProps }) {
         }
       })}
       <footer>
-        <div className="link-container">
-          {icons.map((icon) => (
-            <LinkTile
-              key={icon.title}
-              iconLink={icon.link}
-              icon={icon.icon}
-              iconTitle={icon.title}
-            />
-          ))}
-        </div>
-        {router.pathname !== "/coding-projects" && (
-          <Link href="/">
-            <a className="link">Back to home</a>
-          </Link>
+        {router.pathname === "/" && (
+          <div className="link-container">
+            {icons.map((icon) => (
+              <LinkTile
+                key={icon.title}
+                iconLink={icon.link}
+                icon={icon.icon}
+                iconTitle={icon.title}
+              />
+            ))}
+          </div>
         )}
         <p className="watermark">Jordan Renaud 2022</p>
       </footer>
